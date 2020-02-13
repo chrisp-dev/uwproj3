@@ -1,2 +1,2 @@
 # UW Project 3
-Brainstorm phase
+Band Mate Tinder

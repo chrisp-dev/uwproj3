@@ -3,3 +3,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+h1 {
+    @apply text-lg;
+    @apply font-bold;
+}
+
+h3 {
+    @apply font-semibold;
+}
+
+button {
+    @apply text-2xl;
+    @apply font-bold;
+    @apply bg-blue-500;
+    @apply text-white;
+    @apply rounded-full;
+    padding: 8px;
+}
+
+.img-container {
+    height: 400px;
+    width: 400px;
+}
+
+.active {
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px slateblue;
+    padding: 4px;
+}

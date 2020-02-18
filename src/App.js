@@ -4,6 +4,7 @@ import React from 'react';
 // import { BrowserRouter, Route } from 'react-router-dom'; // TODO
 import Messages from './components/Messages';
 import './App.css';
+import Swiper from './pages/Swiper';
 
 function App() {
   /**
@@ -27,6 +28,7 @@ function App() {
       </div>
       <div className="bg-blue-400 w-3/4 lg:w-1/2 hidden sm:block">{/** Middle / Main */}
         <h3>Middle Column</h3>
+        <Swiper />
       </div>
       <div className="bg-yellow-400 md:w-1/4 hidden lg:block">{/** Right Column */}
         <h3>Right Column</h3>

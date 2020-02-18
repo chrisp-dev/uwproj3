@@ -2,4 +2,13 @@
     max-width: 50px;
     max-height: 50px;
     border-radius: 50%;
+    display: flex;
+}
+
+.horizontal {
+    border: 2px solid black;
+}
+
+.vertical {
+    border: 2px solid steelblue;
 }

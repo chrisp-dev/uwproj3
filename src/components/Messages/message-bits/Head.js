@@ -1,13 +1,14 @@
 import React from 'react';
 import Image from './Image';
+import './style.css'
 
 export default function Head (props) {
     return (
-        <div class='row'>
+        <div className='row flex horizontal'>
             {/* TODO: make it so that it loads however many matches you have */}
-            <Image/>
-            <Image/>
-            <Image/>
+            <Image image={props.message.image}/>
+            {/* <Image message={props.message}/> */}
+            {/* <Image message={props.message}/> */}
         </div>
     )
 }

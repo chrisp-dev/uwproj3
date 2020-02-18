@@ -3,9 +3,10 @@ import Image from './Image'
 
 export default function MessageRow (props) {
     return (
-        <div class='row'>
-            <Image/>
+        <div className='row flex'>
+            <Image image={props.image}/>
             {/* TODO: SOME MESSAGE PREVIEW HERE */}
+            <p>{props.preview}</p>
         </div>
     )
 }

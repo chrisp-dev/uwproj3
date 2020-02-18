@@ -1,0 +1,12 @@
+.modal, .btn {
+    width: 100%;
+    justify-content: center;
+}
+.btn {
+    background: transparent;
+    color: red;
+
+}
+.btn:hover{
+    background:black;
+}

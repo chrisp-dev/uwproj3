@@ -1,4 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import SignUp from "./pages/SignUp";
+import Swipe from "./pages/Swipe";
+// needs FA install
+// import "@fortawesome/fontawesome-free/css/all.min.css";
 // import Swiper from './pages/Swiper';
 // import Deck from './components/Deck';
 // import { BrowserRouter, Route } from 'react-router-dom'; // TODO
@@ -17,23 +25,16 @@ function App() {
    * 3. Ask for help early and often :)
    */
   return (
-    <div className="container-fluid min-w-full flex min-h-screen bg-red-200" > {/* Container */}
-      {/** App should probably be the Router stuff, this is layout stuff i know, TODO **/}
-      < div className="bg-green-400 w-full sm:w-1/4" > {/** Left Column */}
-        {/** TODO
-         * if location.pathname /app/messages
-         * return <Messages />
-         */}
-        <Messages />
-      </div>
-      <div className="bg-blue-400 w-3/4 lg:w-1/2 hidden sm:block">{/** Middle / Main */}
-        <h3>Middle Column</h3>
-        <Swiper />
-      </div>
-      <div className="bg-yellow-400 md:w-1/4 hidden lg:block">{/** Right Column */}
-        <h3>Right Column</h3>
-      </div>
-    </div>
+   <Router>
+     <div>
+       <Route exact path = "/" component ={Home} />
+       <Route exact path = "/home" component ={Home} />
+       <Route exact path = "/login" component ={Login} />
+       <Route exact path = "/profile" component ={Profile} />
+       <Route exact path = "/signup" component ={SignUp} />
+       <Route exact path = "/swipe" component ={Swipe} />
+     </div>
+   </Router>
   );
 }
 

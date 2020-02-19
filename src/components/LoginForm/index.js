@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import API from '../../utils/API'
 
 export default function LoginForm() {
+
+  const [login, setLogin] = useState({
+    email: '',
+    password: ''
+  })
+
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setLogin({
+      ...login,
+      [name]: value
+    })
+  }
+  const handleFormSubmit = event => {
+    event.preventDefault();
+    API.login(login).then(res => {
+      console.log(res.data)
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+
   return (
     <>
       <main>
@@ -22,10 +45,10 @@ export default function LoginForm() {
                   <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                     <div className="text-gray-500 text-center mb-3 font-bold">
                       <small>Log in with your credentials</small>
-                    <hr class="mt-6 border-b-1 border-gray-400" />
+                      <hr class="mt-6 border-b-1 border-gray-400" />
                     </div>
                     <br></br>
-                    <form>
+                    <form onSubmit={handleFormSubmit}>
                       <div className="relative w-full mb-3">
                         <label
                           class="block uppercase text-gray-700 text-xs font-bold mb-2"
@@ -34,6 +57,9 @@ export default function LoginForm() {
                           Email
                         </label>
                         <input
+                          onChange={handleInputChange}
+                          value={login.email}
+                          name='email'
                           type="email"
                           className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                           placeholder="Email"
@@ -49,6 +75,9 @@ export default function LoginForm() {
                           Password
                         </label>
                         <input
+                          onChange={handleInputChange}
+                          value={login.password}
+                          name='password'
                           type="password"
                           className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                           placeholder="Password"
@@ -72,7 +101,7 @@ export default function LoginForm() {
                       <div className="text-center mt-6">
                         <button
                           className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                          type="button"
+                          type="submit"
                           style={{ transition: "all .15s ease" }}
                         >
                           Log In

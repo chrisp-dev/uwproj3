@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
-import Square from '../../components/Square';
+import Square from '../Square';
 
 /**
  * This is my (Chris) first try at react-spring and react-use-gesture.
@@ -21,6 +21,8 @@ export default function Swiper() {
             if (mx > 0) {
                 // show like
                 setSwipe({ like: true, op: mx / 150 });
+                // send like to server
+                // dispose of current card
             } else if (mx < 0) {
                 // show nope
                 setSwipe({ nope: true, op: -mx / 170 });
@@ -42,9 +44,12 @@ export default function Swiper() {
     });
 
     return (
-        <animated.div className="m-auto w-full h-full max-w-md bg-yellow-500" {...bind()} style={{ x, y }}>
-            <animated.div style={{ opacity: swipe.like ? swipe.op : 0 }}><Square x={x} text="LIKE" /></animated.div>
-            <animated.div style={{ opacity: swipe.nope ? swipe.op : 0 }}><Square x={x} text="NOPE" /></animated.div>
-            <img src="https://placekitten.com/200" />Hi
+        <animated.div className="absolute inset-0 left-auto right-auto m-auto w-full h-full max-h-md max-w-md bg-yellow-500" {...bind()} style={{ x, y }}>
+            <div className="relative w-full h-full max-h-screen">
+                <img className="w-full h-full absolute" src="https://placekitten.com/400" />Hi
+
+                <animated.div className="absolute top-0 right-0 h-16 w-auto" style={{ opacity: swipe.like ? swipe.op : 0 }}><Square text="LIKE" /></animated.div>
+                <animated.div className="absolute left-0 top-0 h-16 w-auto" style={{ opacity: swipe.nope ? swipe.op : 0 }}><Square text="NOPE" /></animated.div>
+            </div>
         </animated.div>)
 }

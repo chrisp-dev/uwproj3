@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import Swipe from "./pages/Swipe";
-import Swiper from "./pages/Swiper";
+import Swiper from "./components/Swiper";
 
 function App() {
   return (

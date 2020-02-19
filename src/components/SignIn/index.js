@@ -58,6 +58,20 @@ export default function SignIn() {
                             placeholder="Last"
                           />
                         </div>
+                        <div className="relative w-full mb-3">
+                        <label
+                          class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                          for="grid-password"
+                        >
+                          Email
+                        </label>
+                        <input
+                          type="email"
+                          className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                          placeholder="Email"
+                          style={{ transition: "all .15s ease" }}
+                        />
+                      </div>
                       </div>
                       <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">

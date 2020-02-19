@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import API from '../../utils/API'
 
 export default function SignIn() {
+
+  const [signup, setSignUp] = useState({
+    email: '',
+    password: ''
+  })
+
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setSignUp({
+      ...signup,
+      [name]: value
+    })
+  }
+  const handleFormSubmit = event => {
+    event.preventDefault();
+    API.signup(signup).then(res => {
+      console.log(res.data)
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+
   return (
     <>
       <main>
@@ -25,7 +48,7 @@ export default function SignIn() {
                       <hr className="mt-6 border-b-1 border-gray-400" />
                     </div>
                     <br></br>
-                    <form className="w-full max-w-lg">
+                    <form className="w-full max-w-lg" onSubmit={handleFormSubmit}>
                       <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                           <label
@@ -59,19 +82,22 @@ export default function SignIn() {
                           />
                         </div>
                         <div className="relative w-full mb-3">
-                        <label
-                          class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password"
-                        >
-                          Email
+                          <label
+                            class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                            for="grid-password"
+                          >
+                            Email
                         </label>
-                        <input
-                          type="email"
-                          className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                          placeholder="Email"
-                          style={{ transition: "all .15s ease" }}
-                        />
-                      </div>
+                          <input
+                            onChange={handleInputChange}
+                            value={signup.email}
+                            name='email'
+                            type="email"
+                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                            placeholder="Email"
+                            style={{ transition: "all .15s ease" }}
+                          />
+                        </div>
                       </div>
                       <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">
@@ -82,6 +108,9 @@ export default function SignIn() {
                             Password
                           </label>
                           <input
+                            onChange={handleInputChange}
+                            value={signup.password}
+                            name='password'
                             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-password"
                             type="password"
@@ -94,12 +123,12 @@ export default function SignIn() {
                       </div>
                       <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">
-                        <div className="relative">
-                        <label
-                            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="grid-password"
-                          >
-                            Instrument of Choice
+                          <div className="relative">
+                            <label
+                              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                              for="grid-password"
+                            >
+                              Instrument of Choice
                           </label>
                             <select
                               className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -184,12 +213,12 @@ export default function SignIn() {
                             placeholder="98116"
                           />
                         </div>
-                        
-                        
+
+
                         <div className="text-center center mt-6">
                           <button
                             className="center bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                            type="button"
+                            type="submit"
                             style={{ transition: "all .15s ease" }}
                           >
                             Sign Up

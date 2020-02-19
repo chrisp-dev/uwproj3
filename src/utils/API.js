@@ -15,11 +15,10 @@ const API = {
     bulkPost: () => { },
     login: (user) => {
         return axios.post(`${URL}/api/auth/login`, user, { withCredentials: true })
+    },
+    signup: (user) => {
+        return axios.post(`${URL}/api.auth/signup`, user, { withCredentials: true })
     }
-    // ,
-    // signup: (user) => {
-    //     return axios.post(`${URL}/api.auth/signup`, user, { withCredentials: true })
-    // }
 }
 
 export default API;

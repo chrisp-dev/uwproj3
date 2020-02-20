@@ -8,7 +8,6 @@ import ProfileCard from "../components/ProfileCard";
 // import FinalCard from "../components/FinalCard";
 // import OtherCard from "../components/OtherCard";
 
-
 export default function Profile() {
   return (
     <>
@@ -18,14 +17,10 @@ export default function Profile() {
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
-              backgroundImage:
-                "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')"
+              backgroundImage: "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')"
             }}
           >
-            <span
-              id="blackOverlay"
-              class="w-full h-full absolute opacity-50 bg-black"
-            ></span>
+            <span id="blackOverlay" className="w-full h-full absolute opacity-50 bg-black"></span>
           </div>
           <div
             className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
@@ -40,10 +35,7 @@ export default function Profile() {
               x="0"
               y="0"
             >
-              <polygon
-                className="text-black fill-current"
-                points="2560 0 2560 100 0 100"
-              ></polygon>
+              <polygon className="text-black fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
           </div>
         </section>

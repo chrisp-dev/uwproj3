@@ -46,14 +46,14 @@ export default function SignIn() {
                   <div className="rounded-t mb-0 px-6 py-6"></div>
                   <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                     <div className="text-gray-500 text-center mb-3 font-bold">
-                      <large>Create Your Account</large>
+                      Create Your Account
                       <hr className="mt-6 border-b-1 border-gray-400" />
                     </div>
                     <br></br>
                     <form className="w-full max-w-lg" onSubmit={handleFormSubmit}>
                       <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                             First Name
                           </label>
                           <input
@@ -65,7 +65,7 @@ export default function SignIn() {
                           <p className="text-red-500 text-xs italic">Please fill out this field.</p>
                         </div>
                         <div className="w-full md:w-1/2 px-3">
-                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-last-name">
                             Last Name
                           </label>
                           <input
@@ -76,7 +76,7 @@ export default function SignIn() {
                           />
                         </div>
                         <div className="relative w-full mb-3">
-                          <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                          <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
                             Email
                           </label>
                           <input
@@ -92,7 +92,7 @@ export default function SignIn() {
                       </div>
                       <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">
-                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
                             Password
                           </label>
                           <input
@@ -110,7 +110,7 @@ export default function SignIn() {
                       <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">
                           <div className="relative">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
                               Instrument of Choice
                             </label>
                             <select
@@ -138,7 +138,7 @@ export default function SignIn() {
                       </div>
                       <div className="flex flex-wrap -mx-3 mb-2">
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-city">
                             City
                           </label>
                           <input
@@ -149,7 +149,7 @@ export default function SignIn() {
                           />
                         </div>
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
                             State
                           </label>
                           <div className="relative">
@@ -169,7 +169,7 @@ export default function SignIn() {
                           </div>
                         </div>
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-zip">
                             Zip
                           </label>
                           <input

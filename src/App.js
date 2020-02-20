@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import Swipe from "./pages/Swipe";
 import Swiper from "./components/Swiper";
+import Layout from './components/Layout';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/swipe" component={Swipe} />
+        <Route exact path="/swipe" component={Layout} />
         <Route path="/api/api/chat/join" component={Join} />
         <Route path="/api/api/chat/chat" component={Chat} />
       </div>

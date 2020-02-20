@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Messages from './Messages';
+import Matches from './Matches';
 import Swiper from './Swiper';
 import API from '../utils/API';
 
@@ -34,10 +34,10 @@ export default function Layout() {
             {/** App should probably be the Router stuff, this is layout stuff i know, TODO **/}
             < div className="bg-red-400 w-full sm:w-1/4" > {/** Left Column */}
                 {/** TODO
-         * if location.pathname /app/messages
-         * return <Messages />
+         * if location.pathname /app/Matches
+         * return <Matches />
          */}
-                {/* <Messages /> */}
+                <Matches />
             </div>
             <div className="bg-red-700 w-3/4 lg:w-1/2 hidden sm:flex justify-center">{/** Middle / Main */}
 

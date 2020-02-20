@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import API from '../../utils/API'
 
 export default function LoginForm() {
@@ -19,6 +19,8 @@ export default function LoginForm() {
     event.preventDefault();
     API.login(login).then(res => {
       console.log(res.data)
+      // TODO: do something with res.data.id to store it for chat features 
+      // (loggedinuser function), but can't use useEffect. can probably just do it in messageRow.js
     }).catch(err => {
       console.log(err);
     })

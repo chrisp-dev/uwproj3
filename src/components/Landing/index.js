@@ -2,44 +2,46 @@ import React from "react";
 
 // import Navbar from "../Navbar";
 // import Footer from "../Footer";
+import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
     <>
       <main>
-        <div className="relative pt-16 pb-32 flex content-center items-center justify-center"
+        <div
+          className="relative pt-16 pb-32 flex content-center items-center justify-center"
+          style={{
+            minHeight: "75vh"
+          }}
+        >
+          <div
+            className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
-              minHeight: "75vh"
-            }}>
-          <div className="absolute top-0 w-full h-full bg-center bg-cover"
-              style={{
-                backgroundImage: "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')"
-              }}>
+              backgroundImage: "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')"
+            }}
+          >
             <span id="blackOverlay" className="w-full h-full absolute opacity-75 bg-black"></span>
           </div>
           <div className="container relative mx-auto">
-              <div className="items-center flex flex-wrap">
-                <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-                  <div className="pr-12">
-                    <h1 className="text-white font-semibold text-6xl">
-                      Swipe Right
-                    </h1>
-                    <p className="mt-4 text-sm text-gray-300">
-                     By clicking Sign Up, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookie Policy.
-                    </p>
-                    <div className="text-center mt-6">
-                      <button
-                        className="bg-gray-900 text-red-700 active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                        style={{ transition: "all .15s ease" }}
-                      >
-                        Sign Up
-                      </button>
-                    </div>
+            <div className="items-center flex flex-wrap">
+              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+                <div className="pr-12">
+                  <h1 className="text-white font-semibold text-6xl">Swipe Right</h1>
+                  <p className="mt-4 text-sm text-gray-300">
+                    By clicking Sign Up, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookie Policy.
+                  </p>
+                  <div className="text-center mt-6">
+                    <button
+                      className="bg-gray-900 text-red-700 active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                      type="button"
+                      style={{ transition: "all .15s ease" }}
+                    >
+                      <a href="/signup">Sign Up</a>
+                    </button>
                   </div>
                 </div>
-
               </div>
+            </div>
           </div>
           <div
             className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
@@ -54,10 +56,7 @@ export default function Landing() {
               x="0"
               y="0"
             >
-              <polygon
-                className="text-black fill-current"
-                points="2560 0 2560 100 0 100"
-              ></polygon>
+              <polygon className="text-black fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
           </div>
         </div>
@@ -72,9 +71,7 @@ export default function Landing() {
                       <i className="fas fa-award"></i>
                     </div>
                     <h6 className="text-xl font-semibold">Find New Members</h6>
-                    <p className="mt-2 mb-4 text-gray-800">
-                     Discover the next member to join your ensemble
-                    </p>
+                    <p className="mt-2 mb-4 text-gray-800">Discover the next member to join your ensemble</p>
                   </div>
                 </div>
               </div>
@@ -85,12 +82,8 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-700">
                       <i className="fas fa-retweet"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">
-                      Explore Interests
-                    </h6>
-                    <p className="mt-2 mb-4 text-gray-800">
-                      Journey outside of your musical genre
-                    </p>
+                    <h6 className="text-xl font-semibold">Explore Interests</h6>
+                    <p className="mt-2 mb-4 text-gray-800">Journey outside of your musical genre</p>
                   </div>
                 </div>
               </div>
@@ -101,12 +94,8 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-700">
                       <i className="fas fa-fingerprint"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">
-                      Rock On
-                    </h6>
-                    <p className="mt-2 mb-4 text-gray-800">
-                      Enjoy doing what you love with other people who feel the same way!
-                    </p>
+                    <h6 className="text-xl font-semibold">Rock On</h6>
+                    <p className="mt-2 mb-4 text-gray-800">Enjoy doing what you love with other people who feel the same way!</p>
                   </div>
                 </div>
               </div>
@@ -160,12 +149,13 @@ export default function Landing() {
         <section className="pb-20 relative block bg-black">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
-            style={{ height: "80px", transform: "translateZ(0)",  backgroundImage:"url('https://i.pinimg.com/originals/b3/71/b3/b371b32d4e77f5d45e3661284360d168.gif')"}}
-          >
-  
-          </div>
+            style={{
+              height: "80px",
+              transform: "translateZ(0)",
+              backgroundImage: "url('https://i.pinimg.com/originals/b3/71/b3/b371b32d4e77f5d45e3661284360d168.gif')"
+            }}
+          ></div>
         </section>
-    
       </main>
     </>
   );

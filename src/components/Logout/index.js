@@ -3,19 +3,17 @@ import API from '../../utils/API';
 
 export default function Logout(props) {
 
-    useEffect(function () {
-        API.logout().then(res => {
-            console.log(res.data)
-        }).catch(err => {
-            console.log(err)
-        })
-    }, [])
-
     function handleClick(event) {
         event.preventDefault();
         console.log('weeeoeeeeoeee weeeeoeeeoeee')
-        // redirect here
-        window.location.href = 'http://localhost:3000/login'
+        API.logout().then(res => {
+            console.log(res.data)
+            // redirect here
+            window.location.href = 'http://localhost:3000/login'
+        }).catch(err => {
+            console.log(err)
+        })
+
     }
 
     return (
@@ -35,6 +33,6 @@ export default function Logout(props) {
 
                 <i className="fas fa-arrow-alt-circle-down"></i> Logout
                 </button>
-        </div>
+        </div >
     )
 }

@@ -15,9 +15,9 @@ import API from './utils/API';
 function App() {
 
   useEffect(function () {
-    API.loggedinuser().then(res=> {
+    API.loggedinuser().then(res => {
       console.log(res.data)
-    }).catch(err=>{
+    }).catch(err => {
       console.log(err)
     })
   }, [])
@@ -31,9 +31,9 @@ function App() {
         {/* <Route exact path="/logout" component={API.logout} /> */}
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/signup" component={SignUp} />
-        {/* <Route exact path="/swipe" component={Swipe} /> */}
-        <Route path="/api/chat/join" component={Join} />
-        <Route path="/api/chat/chat" component={Chat} />
+        <Route exact path="/swipe" component={Layout} />
+        <Route path="/api/api/chat/join" component={Join} />
+        <Route path="/api/api/chat/chat" component={Chat} />
         <Route path='/test' component={Layout} />
       </div>
     </Router>

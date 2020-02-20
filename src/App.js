@@ -28,12 +28,13 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/login" component={Login} />
+        {/* <Route exact path="/logout" component={API.logout} /> */}
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/swipe" component={Swipe} />
         <Route path="/api/api/chat/join" component={Join} />
         <Route path="/api/api/chat/chat" component={Chat} />
-        {/* <Route path='/loggedinuser' component={Layout} /> */}
+        <Route path='/test' component={Layout} />
       </div>
     </Router>
   );

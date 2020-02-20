@@ -1,4 +1,5 @@
 import React from "react";
+import Logout from '../Logout'
 
 export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -59,6 +60,9 @@ export default function Navbar(props) {
                 
                   <i className="fas fa-arrow-alt-circle-down"></i> Login
                 </button>
+              </li>
+              <li>
+                <Logout/>
               </li>
             </ul>
           </div>

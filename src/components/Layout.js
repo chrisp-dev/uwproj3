@@ -1,5 +1,6 @@
 import React from 'react';
 import Messages from './Messages';
+import Matches from './Matches';
 import Swiper from './Swiper';
 
 export default function Layout() {
@@ -11,7 +12,8 @@ export default function Layout() {
          * if location.pathname /app/messages
          * return <Messages />
          */}
-                <Messages />
+                <Matches />
+                {/* <Messages /> */}
             </div>
             <div className="bg-blue-400 w-3/4 lg:w-1/2 hidden sm:flex justify-content">{/** Middle / Main */}
                 <h3>Middle Column</h3>

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import Head from './message-bits/Head';
-import MessageBody from './message-bits/MessageBody';
+import Head from '../Matches/message-bits/Head';
+import MessageBody from '../Matches/message-bits/MessageBody';
 import ScrollToBottom from "react-scroll-to-bottom";
-import Message from "./Message";
-import "./style.css";
+// import Message from "./Message";
+// import "./style.css";
 // import TrailExample from '../TrailExample';
 
 /**

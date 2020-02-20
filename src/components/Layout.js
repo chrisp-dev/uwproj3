@@ -1,3 +1,5 @@
+import React from 'react';
+import Messages from './Messages';
 import React, { useState } from 'react';
 import Matches from './Matches';
 import Swiper from './Swiper';
@@ -38,6 +40,7 @@ export default function Layout() {
          * return <Matches />
          */}
                 <Matches />
+                {/* <Messages /> */}
             </div>
             <div className="bg-red-700 w-3/4 lg:w-1/2 hidden sm:flex justify-center">{/** Middle / Main */}
 

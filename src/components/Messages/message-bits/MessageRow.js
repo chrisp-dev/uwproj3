@@ -8,8 +8,9 @@ export default function MessageRow(props) {
 
     useEffect(function () {
         API.loggedinuser().then(res => {
-            console.log(res.data)
-            userID = res.data.id;
+            // console.log(res.data.id)
+            userID = JSON.stringify(res.data.id);
+            console.log(userID)
         }).catch(err => {
             console.log(err)
         })
@@ -17,11 +18,13 @@ export default function MessageRow(props) {
 
     function handleClick(event) {
         event.preventDefault();
-        // console.log(req.session.user)
         console.log('weeeoeeeeoeee weeeeoeeeoeee')
-        console.log(userID)
-        // TODO: need to get both session ID and message recipient ID
-        //       to create the name for the chat room. 
+        if (userID) {
+            console.log(userID)
+        } else {
+            console.log(":((((")
+        }
+        // TODO: need to get message recipient ID to create the name for the chat room.
     }
 
     return (

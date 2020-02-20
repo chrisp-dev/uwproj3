@@ -21,6 +21,9 @@ export default function MessageRow(props) {
         console.log('weeeoeeeeoeee weeeeoeeeoeee')
         if (userID) {
             console.log(userID)
+            console.log(JSON.stringify(props.id))
+            // chat room name = userid + props id
+            // chat participant name = props.name
         } else {
             console.log(":((((")
         }

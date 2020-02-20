@@ -23,7 +23,7 @@ const API = {
         return axios.get(`${URL}/api/auth/loggedinuser`, { withCredentials: true })
     },
     logout: () => {
-        return axios.delete(`${URL}/api/auth/logout`, { withCredentials: true })
+        return axios.get(`${URL}/api/auth/logout`, { withCredentials: true })
     }
 }
 

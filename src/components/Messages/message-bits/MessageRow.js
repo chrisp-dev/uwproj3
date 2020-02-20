@@ -1,9 +1,18 @@
-import React from 'react';
-import Image from './Image'
+import React, { useEffect } from 'react';
+import Image from './Image';
+import API from '../../../utils/API';
 
-export default function MessageRow (props) {
+export default function MessageRow(props) {
 
-    function handleClick (event) {
+    useEffect(function () {
+        API.loggedinuser().then(res => {
+            console.log(res.data)
+        }).catch(err => {
+            console.log(err)
+        })
+    }, [])
+
+    function handleClick(event) {
         event.preventDefault();
         // console.log(req.session.user)
         console.log('weeeoeeeeoeee weeeeoeeeoeee')
@@ -14,7 +23,7 @@ export default function MessageRow (props) {
 
     return (
         <div className='row flex' onClick={handleClick}>
-            <Image image={props.image}/>
+            <Image image={props.image} />
             {/* TODO: SOME MESSAGE PREVIEW HERE */}
             <p>{props.preview}</p>
         </div>

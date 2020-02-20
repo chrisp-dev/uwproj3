@@ -1,7 +1,7 @@
 import Messages from "./components/Messages";
 import Join from "./components/Join";
 import Chat from "./components/Chat";
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -10,8 +10,18 @@ import SignUp from "./pages/SignUp";
 import Swipe from "./pages/Swipe";
 import Swiper from "./components/Swiper";
 import Layout from './components/Layout';
+import API from './utils/API';
 
 function App() {
+
+  useEffect(function () {
+    API.loggedinuser().then(res=> {
+      console.log(res.data)
+    }).catch(err=>{
+      console.log(err)
+    })
+  }, [])
+
   return (
     <Router>
       <div>
@@ -23,7 +33,7 @@ function App() {
         <Route exact path="/swipe" component={Swipe} />
         <Route path="/api/api/chat/join" component={Join} />
         <Route path="/api/api/chat/chat" component={Chat} />
-        <Route path='/test/test' component={Layout} />
+        {/* <Route path='/loggedinuser' component={Layout} /> */}
       </div>
     </Router>
   );

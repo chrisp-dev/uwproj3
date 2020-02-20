@@ -18,6 +18,9 @@ const API = {
     },
     signup: (user) => {
         return axios.post(`${URL}/api/auth/signup`, user, { withCredentials: true })
+    },
+    loggedinuser: () => {
+        return axios.get(`${URL}/api/auth/loggedinuser`, { withCredentials: true })
     }
 }
 

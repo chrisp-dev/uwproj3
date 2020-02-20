@@ -31,9 +31,9 @@ function App() {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/swipe" component={Swipe} />
-        <Route path="/api/api/chat/join" component={Join} />
-        <Route path="/api/api/chat/chat" component={Chat} />
-        {/* <Route path='/loggedinuser' component={Layout} /> */}
+        <Route path="/api/chat/join" component={Join} />
+        <Route path="/api/chat/chat" component={Chat} />
+        <Route path='/test' component={Layout} />
       </div>
     </Router>
   );

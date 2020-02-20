@@ -4,9 +4,13 @@ import API from '../../../utils/API';
 
 export default function MessageRow(props) {
 
+    let userID = '';
+
     useEffect(function () {
         API.loggedinuser().then(res => {
-            console.log(res.data)
+            // console.log(res.data.id)
+            userID = JSON.stringify(res.data.id);
+            console.log(userID)
         }).catch(err => {
             console.log(err)
         })
@@ -14,11 +18,13 @@ export default function MessageRow(props) {
 
     function handleClick(event) {
         event.preventDefault();
-        // console.log(req.session.user)
         console.log('weeeoeeeeoeee weeeeoeeeoeee')
-        // TODO: need to get both session ID and message recipient ID
-        //       to create the name for the chat room. if that combo already exists, then add + 1
-        //       to the name combo.
+        if (userID) {
+            console.log(userID)
+        } else {
+            console.log(":((((")
+        }
+        // TODO: need to get message recipient ID to create the name for the chat room.
     }
 
     return (

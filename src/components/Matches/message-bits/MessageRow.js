@@ -26,7 +26,8 @@ export default function MessageRow(props) {
             console.log(userID)
             console.log(JSON.stringify(props.id))
             room = props.id + userID;
-            window.location.href = `http://localhost:3000/api/chat/chat?name=${name}&room=${room}`
+            //TODO: CHANGE HREF LINK ------------------------------------------------------------------
+            window.location.href = `http://localhost:3000/chat/chat?name=${name}&room=${room}`
             // chat room name = userid + props id
             // chat participant name = props.name
         } else {

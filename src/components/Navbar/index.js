@@ -62,7 +62,7 @@ export default function Navbar(props) {
                 </Link>
               </li>
               <li>
-                <Logout/>
+                <Logout />
               </li>
             </ul>
           </div>

@@ -1,3 +1,4 @@
+import Messages from './Messages';
 import React, { useState } from 'react';
 import Matches from './Matches';
 import Swiper from './Swiper';

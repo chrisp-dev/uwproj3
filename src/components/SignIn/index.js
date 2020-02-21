@@ -5,7 +5,9 @@ export default function SignIn() {
 
   const [signup, setSignUp] = useState({
     email: '',
-    password: ''
+    password: '',
+    firstName: '',
+    zipcode: ''
   })
 
   const handleInputChange = event => {
@@ -17,11 +19,20 @@ export default function SignIn() {
   }
   const handleFormSubmit = event => {
     event.preventDefault();
-    API.signup(signup).then(res => {
-      console.log(res.data)
-    }).catch(err => {
-      console.log(err);
-    })
+    API.signup(signup)
+      .then(res => {
+        // what to do with response data
+        console.log(res.data)
+      })
+      // .then(() => {
+      //   // what to do next
+      //   API.othersignup().then(res=>{
+      //     //stuff and things
+      //   })
+      // })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   return (
@@ -58,6 +69,9 @@ export default function SignIn() {
                             First Name
                           </label>
                           <input
+                            onChange={handleInputChange}
+                            value={signup.firstName}
+                            name='firstName'
                             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                             id="grid-first-name"
                             type="text"
@@ -75,6 +89,9 @@ export default function SignIn() {
                             Last Name
                           </label>
                           <input
+                            onChange={handleInputChange}
+                            value={signup.lastName}
+                            name='lastName'
                             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-last-name"
                             type="text"
@@ -207,6 +224,9 @@ export default function SignIn() {
                             Zip
                           </label>
                           <input
+                            onChange={handleInputChange}
+                            value={signup.zipcode}
+                            name='zipcode'
                             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-zip"
                             type="text"

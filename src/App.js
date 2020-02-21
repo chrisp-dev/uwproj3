@@ -31,15 +31,15 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
-          {/* <Route exact path="/logout" component={API.logout} /> */}
-          <Route path="/app">
+          {/* <Route exact path="/logout" component={API.logout} /> 
+          <Route path="/app">*/}
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/swipe" component={Layout} />
-            <Route path="/api/api/chat/join" component={Join} />
-            <Route path="/api/api/chat/chat" component={Chat} />
+            <Route path="/chat/join" component={Join} />
+            <Route path="/chat/chat" component={Chat} />
             <Route path='/test' component={Layout} />
-          </Route>
+          {/*</Route>*/}
         </Switch>
       </div>
     </Router>

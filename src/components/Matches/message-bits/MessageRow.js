@@ -5,11 +5,14 @@ import API from '../../../utils/API';
 export default function MessageRow(props) {
 
     let userID = '';
+    let name = "";
+    let room = "";
 
     useEffect(function () {
         API.loggedinuser().then(res => {
-            // console.log(res.data.id)
+            console.log(res.data)
             userID = JSON.stringify(res.data.id);
+            name = JSON.stringify(res.data.firstName);
             console.log(userID)
         }).catch(err => {
             console.log(err)
@@ -22,6 +25,9 @@ export default function MessageRow(props) {
         if (userID) {
             console.log(userID)
             console.log(JSON.stringify(props.id))
+            room = props.id + userID;
+            //TODO: CHANGE HREF LINK ------------------------------------------------------------------
+            window.location.href = `http://localhost:3000/chat/chat?name=${name}&room=${room}`
             // chat room name = userid + props id
             // chat participant name = props.name
         } else {

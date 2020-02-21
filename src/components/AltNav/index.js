@@ -57,7 +57,6 @@ export default function AltNav(props) {
               (navbarOpen ? " block rounded shadow-lg" : " hidden")
             }
             id="example-navbar-warning">
-
           </div>
         </div>
       </nav>

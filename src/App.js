@@ -1,10 +1,8 @@
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Messages from "./components/Messages";
 import Join from "./components/Join";
 import Chat from "./components/Chat";
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
@@ -33,12 +31,12 @@ function App() {
           <Route exact path="/home" component={Home} />
           {/* <Route exact path="/logout" component={API.logout} /> 
           <Route path="/app">*/}
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/swipe" component={Layout} />
-            <Route path="/chat/join" component={Join} />
-            <Route path="/chat/chat" component={Chat} />
-            <Route path='/test' component={Layout} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/swipe" component={Layout} />
+          <Route path="/chat/join" component={Join} />
+          <Route path="/chat/chat" component={Chat} />
+          <Route path='/test' component={Layout} />
           {/*</Route>*/}
         </Switch>
       </div>

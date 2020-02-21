@@ -12,7 +12,7 @@ export default function MessageRow(props) {
         API.loggedinuser().then(res => {
             console.log(res.data)
             userID = JSON.stringify(res.data.id);
-            name = JSON.stringify(res.data.name);
+            name = JSON.stringify(res.data.firstName);
             console.log(userID)
         }).catch(err => {
             console.log(err)

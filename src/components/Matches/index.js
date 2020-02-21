@@ -6,7 +6,7 @@ export default function Messages (props) {
 
     const [messages, setMessage] = useState([
         {
-            id: 1,
+            id: 69,
             name: 'Nate',
             preview: 'some message preview',
             image: 'https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512'

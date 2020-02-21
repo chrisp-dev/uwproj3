@@ -1,23 +1,12 @@
 import React, {useState} from 'react';
-import Head from '../Matches/message-bits/Head';
-import MessageBody from '../Matches/message-bits/MessageBody';
-import ScrollToBottom from "react-scroll-to-bottom";
-// import Message from "./Message";
-// import "./style.css";
-// import TrailExample from '../TrailExample';
-
-/**
- * TODO: implement messaging
- * 1. Chris can help come up with detailed tasks
- * 2. Chris hopes these comments help
- */
-// export default TrailExample;
+import Head from './message-bits/Head';
+import MessageBody from './message-bits/MessageBody';
 
 export default function Messages (props) {
 
     const [messages, setMessage] = useState([
         {
-            id: 1,
+            id: 69,
             name: 'Nate',
             preview: 'some message preview',
             image: 'https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512'
@@ -31,15 +20,3 @@ export default function Messages (props) {
         </div>
     )
 }
-
-// const Messages = ({ messages, name }) => (
-//   <ScrollToBottom className="messages">
-//     {messages.map((message, i) => (
-//       <div key={i}>
-//         <Message message={message} name={name} />
-//       </div>
-//     ))}
-//   </ScrollToBottom>
-// );
-
-// export default Messages;

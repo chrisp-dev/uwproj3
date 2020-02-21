@@ -19,8 +19,7 @@ export default function LoginForm() {
     event.preventDefault();
     API.login(login).then(res => {
       console.log(res.data)
-      // TODO: do something with res.data.id to store it for chat features 
-      // (loggedinuser function), but can't use useEffect. can probably just do it in messageRow.js
+      window.location.href = 'http://localhost:3000/profile' // TODO: chanche this to deployed link in production
     }).catch(err => {
       console.log(err);
     })

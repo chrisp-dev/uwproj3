@@ -4,8 +4,14 @@ const URL = 'http://localhost:8080';
 
 const API = {
     getUsers: () => { },
-    postLike: () => { },
-    postNope: () => { },
+    postLike: (id) => {
+        // axios.post(`${URL}/like/${id}`);
+        return true;
+    },
+    postNope: (id) => {
+        // axios.post(`${URL}/nope/${id}`)
+        return true;
+    },
     postUndo: () => { },
     saveSettings: () => { },
     uploadImage: () => { },

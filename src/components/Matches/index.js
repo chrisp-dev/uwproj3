@@ -1,17 +1,6 @@
 import React, {useState} from 'react';
 import Head from './message-bits/Head';
 import MessageBody from './message-bits/MessageBody';
-import ScrollToBottom from "react-scroll-to-bottom";
-import Message from "./Message";
-import "./style.css";
-// import TrailExample from '../TrailExample';
-
-/**
- * TODO: implement messaging
- * 1. Chris can help come up with detailed tasks
- * 2. Chris hopes these comments help
- */
-// export default TrailExample;
 
 export default function Messages (props) {
 
@@ -31,15 +20,3 @@ export default function Messages (props) {
         </div>
     )
 }
-
-// const Messages = ({ messages, name }) => (
-//   <ScrollToBottom className="messages">
-//     {messages.map((message, i) => (
-//       <div key={i}>
-//         <Message message={message} name={name} />
-//       </div>
-//     ))}
-//   </ScrollToBottom>
-// );
-
-// export default Messages;

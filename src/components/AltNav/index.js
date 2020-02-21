@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import Logout from '../Logout'
 
 export default function AltNav(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -36,6 +37,19 @@ export default function AltNav(props) {
                 }
               ></i>
             </button>
+          </div>
+          <div
+            className={
+              "lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none" +
+              (navbarOpen ? " block rounded shadow-lg" : " hidden")
+            }
+            id="example-navbar-warning">
+
+            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+              <li>
+                <Logout />
+              </li>
+            </ul>
           </div>
           <div
             className={

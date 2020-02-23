@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import AltNav from "../components/AltNav";
+import ProfileNav from "../components/ProfileNav";
 import ProfileCard from "../components/ProfileCard";
 // other card options,dont remove
 // import Contact from "../components/Contact";
@@ -23,7 +24,7 @@ export default function Profile(props) {
 
   return (
     <>
-      <AltNav transparent />
+      <ProfileNav transparent />
       <main className="profile-page">
         <section className="relative block" style={{ height: "500px" }}>
           <div

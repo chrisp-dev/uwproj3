@@ -46,12 +46,12 @@ export default function LoginForm() {
                   <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                     <div className="text-gray-500 text-center mb-3 font-bold">
                       <small>Log in with your credentials</small>
-                      <hr class="mt-6 border-b-1 border-gray-400" />
+                      <hr className="mt-6 border-b-1 border-gray-400" />
                     </div>
                     <br></br>
                     <form onSubmit={handleFormSubmit}>
                       <div className="relative w-full mb-3">
-                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                        <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
                           Email
                         </label>
                         <input
@@ -66,7 +66,7 @@ export default function LoginForm() {
                       </div>
 
                       <div className="relative w-full mb-3">
-                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                        <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
                           Password
                         </label>
                         <input
@@ -80,14 +80,14 @@ export default function LoginForm() {
                         />
                       </div>
                       <div>
-                        <label class="inline-flex items-center cursor-pointer">
+                        <label className="inline-flex items-center cursor-pointer">
                           <input
                             id="customCheckLogin"
                             type="checkbox"
                             className="form-checkbox text-gray-800 ml-1 w-5 h-5"
                             style={{ transition: "all .15s ease" }}
                           />
-                          <span class="ml-2 text-sm font-semibold text-gray-700">Remember me</span>
+                          <span className="ml-2 text-sm font-semibold text-gray-700">Remember me</span>
                         </label>
                       </div>
 

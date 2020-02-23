@@ -27,7 +27,7 @@ export default function ProfileCard({ user }) {
                       type="button"
                       style={{ transition: "all .15s ease" }}
                     >
-                      Start Swiping
+                      <a href="/swipe">Start Swiping</a>
                     </button>
                   </div>
                 </div>

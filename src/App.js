@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
-import Swipe from "./pages/Swipe";
+import SwipeTest from "./pages/SwipeTest";
 import Swiper from "./components/Swiper";
 import Layout from './components/Layout';
 import API from './utils/API';
@@ -34,6 +34,7 @@ function App() {
         <Route exact path="/swipe" component={Layout} />
         <Route path="/chat/join" component={Join} />
         <Route path="/chat/chat" component={Chat} />
+        <Route path="/swipetest" component={SwipeTest} />
         <Route path='/test' component={Layout} />
       </div>
     </Router>

@@ -16,9 +16,17 @@ export default function Profile(props) {
     firstName: ""
   });
 
+  const [detail, setDetail] = useState({
+    zipcode: "",
+    lastName: ""
+  });
+
   useEffect(function() {
     API.loggedinuser()
-      .then(res => setUser(res.data))
+      .then(res => {
+        setUser(res.data);
+        API.getUser(res.data.id).then(detail => setDetail(detail.data));
+      })
       .catch(err => console.log(err));
   }, []);
 
@@ -57,7 +65,7 @@ export default function Profile(props) {
         {/* <FinalCard /> */}
         {/* <Contact /> */}
         {/* <TeamPage/> */}
-        <ProfileCard user={user} />
+        <ProfileCard user={user} detail={detail} />
       </main>
     </>
   );

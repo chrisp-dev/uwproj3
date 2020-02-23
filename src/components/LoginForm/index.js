@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import API from "../../utils/API";
 
 export default function LoginForm() {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-import AltNav from "../components/AltNav";
+// import AltNav from "../components/AltNav";
 import ProfileNav from "../components/ProfileNav";
 import ProfileCard from "../components/ProfileCard";
 // other card options,dont remove

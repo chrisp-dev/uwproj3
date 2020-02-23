@@ -1,29 +1,30 @@
 import React, { useState, useEffect } from "react";
-import API from '../../utils/API'
+import API from "../../utils/API";
 
 export default function LoginForm() {
-
   const [login, setLogin] = useState({
-    email: '',
-    password: ''
-  })
+    email: "",
+    password: ""
+  });
 
   const handleInputChange = event => {
     const { name, value } = event.target;
     setLogin({
       ...login,
       [name]: value
-    })
-  }
+    });
+  };
   const handleFormSubmit = event => {
     event.preventDefault();
-    API.login(login).then(res => {
-      console.log(res.data)
-      window.location.href = 'http://localhost:3000/profile' // TODO: chanche this to deployed link in production
-    }).catch(err => {
-      console.log(err);
-    })
-  }
+    API.login(login)
+      .then(res => {
+        console.log("logged in successfully", res.data);
+        window.location.href = "/profile";
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -41,8 +42,7 @@ export default function LoginForm() {
             <div className="flex content-center items-center justify-center h-full">
               <div className="w-full lg:w-4/12 px-4">
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-black border-0">
-                  <div className="rounded-t mb-0 px-6 py-6">
-                  </div>
+                  <div className="rounded-t mb-0 px-6 py-6"></div>
                   <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                     <div className="text-gray-500 text-center mb-3 font-bold">
                       <small>Log in with your credentials</small>
@@ -51,16 +51,13 @@ export default function LoginForm() {
                     <br></br>
                     <form onSubmit={handleFormSubmit}>
                       <div className="relative w-full mb-3">
-                        <label
-                          class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password"
-                        >
+                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-password">
                           Email
                         </label>
                         <input
                           onChange={handleInputChange}
                           value={login.email}
-                          name='email'
+                          name="email"
                           type="email"
                           className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                           placeholder="Email"
@@ -69,16 +66,13 @@ export default function LoginForm() {
                       </div>
 
                       <div className="relative w-full mb-3">
-                        <label
-                          class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password"
-                        >
+                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-password">
                           Password
                         </label>
                         <input
                           onChange={handleInputChange}
                           value={login.password}
-                          name='password'
+                          name="password"
                           type="password"
                           className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                           placeholder="Password"
@@ -93,9 +87,7 @@ export default function LoginForm() {
                             className="form-checkbox text-gray-800 ml-1 w-5 h-5"
                             style={{ transition: "all .15s ease" }}
                           />
-                          <span class="ml-2 text-sm font-semibold text-gray-700">
-                            Remember me
-                          </span>
+                          <span class="ml-2 text-sm font-semibold text-gray-700">Remember me</span>
                         </label>
                       </div>
 
@@ -113,20 +105,12 @@ export default function LoginForm() {
                 </div>
                 <div className="flex flex-wrap mt-6">
                   <div className="w-1/2">
-                    <a
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                      className="text-gray-300"
-                    >
+                    <a href="#pablo" onClick={e => e.preventDefault()} className="text-gray-300">
                       <small>Forgot password?</small>
                     </a>
                   </div>
                   <div className="w-1/2 text-right">
-                    <a
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                      className="text-gray-300"
-                    >
+                    <a href="#pablo" onClick={e => e.preventDefault()} className="text-gray-300">
                       <small>Create new account</small>
                     </a>
                   </div>

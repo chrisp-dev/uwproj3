@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import API from "../utils/API";
 import AltNav from "../components/AltNav";
 import ProfileCard from "../components/ProfileCard";
 // other card options,dont remove
@@ -8,8 +8,19 @@ import ProfileCard from "../components/ProfileCard";
 // import FinalCard from "../components/FinalCard";
 // import OtherCard from "../components/OtherCard";
 
+export default function Profile(props) {
+  const [user, setUser] = useState({
+    id: 0,
+    email: "",
+    firstName: ""
+  });
 
-export default function Profile() {
+  useEffect(function() {
+    API.loggedinuser()
+      .then(res => setUser(res.data))
+      .catch(err => console.log(err));
+  }, []);
+
   return (
     <>
       <AltNav transparent />
@@ -18,14 +29,10 @@ export default function Profile() {
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
-              backgroundImage:
-                "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')"
+              backgroundImage: "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')"
             }}
           >
-            <span
-              id="blackOverlay"
-              class="w-full h-full absolute opacity-50 bg-black"
-            ></span>
+            <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
           </div>
           <div
             className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
@@ -40,10 +47,7 @@ export default function Profile() {
               x="0"
               y="0"
             >
-              <polygon
-                className="text-black fill-current"
-                points="2560 0 2560 100 0 100"
-              ></polygon>
+              <polygon className="text-black fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
           </div>
         </section>
@@ -52,7 +56,7 @@ export default function Profile() {
         {/* <FinalCard /> */}
         {/* <Contact /> */}
         {/* <TeamPage/> */}
-        <ProfileCard />
+        <ProfileCard user={user} />
       </main>
     </>
   );

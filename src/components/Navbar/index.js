@@ -61,6 +61,7 @@ export default function Navbar(props) {
                   <i className="fas fa-arrow-alt-circle-down"></i> Login
                 </Link>
               </li>
+
             </ul>
           </div>
         </div>

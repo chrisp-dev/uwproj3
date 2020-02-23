@@ -5,23 +5,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SignIn from "../components/SignIn";
 
-
-
-
-
-
-function SignUp(){
-    return(
-       
+function SignUp() {
+  return (
     <div>
-
-       <Wrapper>
-        <Navbar transparent/>
+      <Wrapper>
+        <Navbar transparent />
         <SignIn />
-       </Wrapper> 
-        <Footer />
+      </Wrapper>
+      <Footer />
     </div>
-       
-    );
+  );
 }
 export default SignUp;

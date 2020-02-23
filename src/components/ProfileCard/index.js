@@ -49,7 +49,7 @@ export default function ProfileCard({ user }) {
                 </div>
               </div>
               <div className="text-center mt-12">
-                <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">{user.firstName}</h3>
+                <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">{user.firstName}</h3>
                 <div className="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
                   <i className="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i> Seattle, Washington
                 </div>
@@ -65,7 +65,7 @@ export default function ProfileCard({ user }) {
               <div className="mt-10 py-10 border-t border-gray-800 text-center">
                 <div className="flex flex-wrap justify-center">
                   <div className="w-full lg:w-9/12 px-4">
-                    <p class="mb-4 text-lg leading-relaxed text-gray-800">
+                    <p className="mb-4 text-lg leading-relaxed text-gray-800">
                       I play multiple instruments and currently I am searching for people to create a band. Looking for someone to play drums especially. I
                       enjoy all music genres.
                     </p>

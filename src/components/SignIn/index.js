@@ -6,6 +6,7 @@ export default function SignIn() {
     email: "",
     password: "",
     firstName: "",
+    lastName: "",
     zipcode: ""
   });
 
@@ -22,6 +23,7 @@ export default function SignIn() {
       .then(res => {
         // what to do with response data
         console.log(res.data);
+        window.location = "/login";
       })
       // .then(() => {
       //   // what to do next

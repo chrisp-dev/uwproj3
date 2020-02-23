@@ -1,5 +1,5 @@
 import React from "react";
-import Logout from '../Logout'
+
 import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
@@ -60,9 +60,6 @@ export default function Navbar(props) {
 
                   <i className="fas fa-arrow-alt-circle-down"></i> Login
                 </Link>
-              </li>
-              <li>
-                <Logout/>
               </li>
             </ul>
           </div>

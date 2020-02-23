@@ -1,6 +1,6 @@
 import React from "react";
 
-import AltNav from "../components/AltNav";
+import ProfileNav from "../components/ProfileNav";
 import ProfileCard from "../components/ProfileCard";
 // other card options,dont remove
 // import Contact from "../components/Contact";
@@ -12,7 +12,7 @@ import ProfileCard from "../components/ProfileCard";
 export default function Profile() {
   return (
     <>
-      <AltNav transparent />
+      <ProfileNav transparent />
       <main className="profile-page">
         <section className="relative block" style={{ height: "500px" }}>
           <div

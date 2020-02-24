@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from 'axios';
 
-export default function ProfileCard() {
+export default function ProfileCard({ user, detail }) {
 
   useEffect(() => {
     var imgURL;
@@ -48,8 +48,8 @@ export default function ProfileCard() {
                 <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                   <div className="relative">
                     <img
-                      alt="..."
-                      src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e3041c48-1d9d-4125-99e5-20fe0640a4db/d355wtj-195d9a65-6cb9-4a59-9ceb-82bab4419d56.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UzMDQxYzQ4LTFkOWQtNDEyNS05OWU1LTIwZmUwNjQwYTRkYlwvZDM1NXd0ai0xOTVkOWE2NS02Y2I5LTRhNTktOWNlYi04MmJhYjQ0MTlkNTYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.p33aXa5XWxtx_4nDFlWPVPatgJL1lOsM4bFg53Rn3iE"
+                      alt="user"
+                      // TODO: ADD IMAGE ASSOCIATION HERE (user.image or something)
                       className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                       style={{ maxWidth: "150px" }}
                     />
@@ -64,24 +64,6 @@ export default function ProfileCard() {
                     >
                       Start Swiping
                       </button>
-                    {/* <label
-                      className="bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
-                      type="button"
-                      style={{ transition: "all .15s ease" }}
-                      >
-                      {/* <input ></input> */}
-                    {/* Select an Image */}
-                    {/* </label> */}
-                    {/* <button
-                      className="bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
-                      id='file-upload'
-                      htmlFor='file-upload'
-                      onClick={uploadImage}
-                      type="file">Submit</button> */}
-                    {/* <label class="file-upload-container btn btn-reverse" for="file-upload">
-                      <input id="file-upload" type="file" style={{ transition: "all .15s ease" }}></input>
-                      Select an Image    onChange={uploadImage}
-                    </label> */}
                     <label className='file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1' htmlFor='file-upload'>
                       <input id='file-upload' type='file'></input>
                       Select an Image
@@ -91,56 +73,45 @@ export default function ProfileCard() {
                 <div className="w-full lg:w-4/12 px-4 lg:order-1">
                   <div className="flex justify-center py-4 lg:pt-4 pt-8">
                     <div className="mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">
-                        22
-                        </span>
+                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">22</span>
                       <span className="text-sm text-gray-500">Matches</span>
                     </div>
                     <div className="mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">
-                        10
-                        </span>
+                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">10</span>
                       <span className="text-sm text-gray-500">Photos</span>
                     </div>
                     <div className="lg:mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">
-                        89
-                        </span>
+                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">89</span>
                       <span className="text-sm text-gray-500">Messages</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="text-center mt-12">
-                <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
-                  Some Guy
-                  </h3>
+                <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">{user.firstName}</h3>
                 <div className="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
-                  <i className="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>{" "}
-                  Seattle, Washington
-                  </div>
+                  <i className="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
+                  {detail.zipcode}
+                </div>
                 <div className="mb-2 text-gray-700 mt-10">
                   <i className="fas fa-briefcase mr-2 text-lg text-gray-800"></i>
                   Bass Guitarist - 10 years experience
-                  </div>
+                </div>
                 <div className="mb-2 text-gray-700">
                   <i className="fas fa-university mr-2 text-lg text-gray-800"></i>
                   Lead Singer - 10 years experience
-                  </div>
+                </div>
               </div>
               <div className="mt-10 py-10 border-t border-gray-800 text-center">
                 <div className="flex flex-wrap justify-center">
                   <div className="w-full lg:w-9/12 px-4">
-                    <p class="mb-4 text-lg leading-relaxed text-gray-800">
-                      I play multiple instruments and currently I am searching for people to create a band. Looking for someone to play drums especially. I enjoy all music genres.
-                      </p>
-                    <a
-                      href="#pablo"
-                      className="font-normal text-red-700"
-                      onClick={e => e.preventDefault()}
-                    >
+                    <p className="mb-4 text-lg leading-relaxed text-gray-800">
+                      I play multiple instruments and currently I am searching for people to create a band. Looking for someone to play drums especially. I
+                      enjoy all music genres.
+                    </p>
+                    <a href="#pablo" className="font-normal text-red-700" onClick={e => e.preventDefault()}>
                       Edit
-                      </a>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -1,8 +1,8 @@
 import React from "react";
-
+import Logout from '../Logout'
 import { Link } from 'react-router-dom';
 
-export default function Navbar(props) {
+export default function ProfileNav(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
@@ -47,21 +47,8 @@ export default function Navbar(props) {
 
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">
-                <Link
-                  to="/login"
-                  className={
-                    (props.transparent
-                      ? "bg-red-700 text-gray-800 active:bg-gray-100"
-                      : "bg-pink-500 text-white active:bg-pink-600") +
-                    " text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                  }
-                  style={{ transition: "all .15s ease" }}
-                >
-
-                  <i className="fas fa-arrow-alt-circle-down"></i> Login
-                </Link>
+               <Logout/>
               </li>
-
             </ul>
           </div>
         </div>

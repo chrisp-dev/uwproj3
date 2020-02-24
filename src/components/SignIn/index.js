@@ -25,12 +25,6 @@ export default function SignIn() {
         console.log(res.data);
         window.location = "/login";
       })
-      // .then(() => {
-      //   // what to do next
-      //   API.othersignup().then(res=>{
-      //     //stuff and things
-      //   })
-      // })
       .catch(err => {
         console.log(err);
       });

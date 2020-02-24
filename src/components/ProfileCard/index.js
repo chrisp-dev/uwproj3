@@ -1,7 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import API from '../../utils/API'
 import axios from 'axios';
 
 export default function ProfileCard({ user, detail }) {
+
+  const [image, setImage] = useState({
+    imageUrl: ''
+  })
+
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setImage({
+      ...image,
+      [name]: value
+    });
+  };
 
   useEffect(() => {
     var imgURL;
@@ -29,13 +42,17 @@ export default function ProfileCard({ user, detail }) {
         // console.log(res.data.url)
         imgURL = res.data.url;
         console.log(imgURL)
-        //TODO: SEND THIS URL TO THE IMAGE MODEL
+        //SEND THIS URL TO THE IMAGE MODEL
+        API.uploadImage(image)
+          .then(res => {
+            console.log(res.data)
+          })
         alert("your image has been uploaded!")
       }).catch(function (err) {
         console.error(err)
       })
     })
-  })
+  }, [image])
 
 
   return (
@@ -64,8 +81,13 @@ export default function ProfileCard({ user, detail }) {
                     >
                       Start Swiping
                       </button>
-                    <label className='file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1' htmlFor='file-upload'>
-                      <input id='file-upload' type='file'></input>
+                    <label className='file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1'
+                      htmlFor='file-upload'>
+                      <input id='file-upload'
+                      type='file'
+                      onChange={handleInputChange}
+                      value={image.imageUrl}
+                      ></input>
                       Select an Image
                     </label>
                   </div>

@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ProfileNav from "../components/ProfileNav";
 import Wrapper from "../components/Wrapper";
 import OptionSwipe from "../components/OptionSwipe";
 import Swiper from '../components/Swiper';
+import API from "../utils/API";
 
 export default function SwipeTest() {
+    useEffect(function () {
+        API.loggedinuser()
+          .then(res => {
+            console.log(res.data);
+          })
+          .catch(err => console.log(err));
+      }, []);
     return (
         <div>
             <Wrapper>

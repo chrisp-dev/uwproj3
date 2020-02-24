@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import API from "../../utils/API";
 
 export default function ProfileCard({ user, detail }) {
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    API.receiveMessage(user.id).then(res => {
+      setMessages(res.data);
+    });
+  }, [user.id]);
+
   return (
     <>
-      <section
-        className="relative py-16 bg-black"
-        style={{ backgroundImage: "url('http://localhost:8080/images/music_notes.gif')" }}
-      >
+      <section className="relative py-16 bg-black" style={{ backgroundImage: "url('http://localhost:8080/images/music_notes.gif')" }}>
         <div className="container mx-auto px-4">
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
             <div className="px-6">
@@ -43,7 +49,7 @@ export default function ProfileCard({ user, detail }) {
                       <span className="text-sm text-gray-500">Photos</span>
                     </div>
                     <div className="lg:mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">89</span>
+                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">{messages.length}</span>
                       <span className="text-sm text-gray-500">Messages</span>
                     </div>
                   </div>

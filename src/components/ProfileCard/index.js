@@ -1,42 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from 'axios';
 
 export default function ProfileCard() {
 
-  // var submitBtn = document.getElementById("submitBtn");
+  useEffect(() => {
+    var imgURL;
 
-  // submitBtn.onclick = function () {
+    const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/delw6elgw/upload"
+    const CLOUDINARY_UPLOAD_PRESET = "r6mprs9r"
 
+    var fileUpload = document.getElementById("file-upload");
 
+    fileUpload.addEventListener("change", function (event) {
+      var file = event.target.files[0];
+      var formData = new FormData();
 
-  function uploadImage() {
-      var imgURL;
+      formData.append("file", file);
+      formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
 
-      const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/delw6elgw/upload"
-      const CLOUDINARY_UPLOAD_PRESET = "r6mprs9r"
-      var fileUpload = document.getElementById("file-upload");
-      fileUpload.onclick = function (event) {
-        var file = event.target.files;
-        var formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
-        axios({
-          url: CLOUDINARY_URL,
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          data: formData
-        }).then(function (res) {
-          // console.log(res.data.url)
-          imgURL = res.data.url;
-          console.log(imgURL)
-          alert("your image has been uploaded!")
-        }).catch(function (err) {
-          console.error(err)
-        })
-      }
-    }
+      axios({
+        url: CLOUDINARY_URL,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: formData
+      }).then(function (res) {
+        // console.log(res.data.url)
+        imgURL = res.data.url;
+        console.log(imgURL)
+        alert("your image has been uploaded!")
+      }).catch(function (err) {
+        console.error(err)
+      })
+    })
+  })
 
 
   return (
@@ -65,22 +63,28 @@ export default function ProfileCard() {
                     >
                       Start Swiping
                       </button>
-                    <button
+                    {/* <label
                       className="bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
                       type="button"
                       style={{ transition: "all .15s ease" }}
-                      onClick={uploadImage}>
-                      <input type="file"></input>
-                      {/* Select an Image */}
-                      </button>
-                      <button
+                      >
+                      {/* <input ></input> */}
+                    {/* Select an Image */}
+                    {/* </label> */}
+                    {/* <button
                       className="bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
                       id='file-upload'
-                      htmlFor='file-upload'>Submit</button>
+                      htmlFor='file-upload'
+                      onClick={uploadImage}
+                      type="file">Submit</button> */}
                     {/* <label class="file-upload-container btn btn-reverse" for="file-upload">
                       <input id="file-upload" type="file" style={{ transition: "all .15s ease" }}></input>
-                      Select an Image
+                      Select an Image    onChange={uploadImage}
                     </label> */}
+                    <label className='file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1' htmlFor='file-upload'>
+                      <input id='file-upload' type='file'></input>
+                      Select an Image
+                    </label>
                   </div>
                 </div>
                 <div className="w-full lg:w-4/12 px-4 lg:order-1">

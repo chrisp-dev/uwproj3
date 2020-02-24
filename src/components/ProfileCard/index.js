@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from '../../utils/API'
 import axios from 'axios';
 
-export default function ProfileCard({ user, detail }) {
+export default function ProfileCard({ user, detail, img }) {
 
   const [image, setImage] = useState({
     imageUrl: ''
@@ -56,8 +56,8 @@ export default function ProfileCard({ user, detail }) {
                   <div className="relative">
                     <img
                       alt="user"
-                      // TODO: ADD IMAGE ASSOCIATION HERE (detail.image or something)
-                      src={detail.imgURL}
+                      // IMAGE ASSOCIATION HERE
+                      src={img}
                       className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                       style={{ maxWidth: "150px" }}
                     />

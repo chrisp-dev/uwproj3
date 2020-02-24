@@ -18,21 +18,30 @@ export default function Profile(props) {
 
   const [detail, setDetail] = useState({
     zipcode: "",
-    lastName: "",
-    imgURL: ""
+    lastName: ""
   });
 
-  useEffect(function() {
+  const [img, setImg] = useState("")
+
+  useEffect(function () {
     API.loggedinuser()
       .then(res => {
         setUser(res.data);
         API.getUser(res.data.id).then(detail => setDetail(detail.data));
       })
-      .then(res => {
-        API.singleImage(res.data.id).then(detail => setDetail(detail.data));
-      })
       .catch(err => console.log(err));
   }, []);
+
+  useEffect(function () {
+    console.log(user.id)
+    if (user.id > 0) {
+      API.singleImage(user.id)
+        .then(img => 
+          {console.log(img)
+            setImg(img.data.imageUrl)})
+        .catch(err => console.log(err))
+    }
+  }, [user.id])
 
   return (
     <>
@@ -69,7 +78,7 @@ export default function Profile(props) {
         {/* <FinalCard /> */}
         {/* <Contact /> */}
         {/* <TeamPage/> */}
-        <ProfileCard user={user} detail={detail} />
+        <ProfileCard user={user} detail={detail} img={img} />
       </main>
     </>
   );

@@ -1,6 +1,6 @@
 import axios from "axios";
 // const URL = "http://localhost:8080";
-const URL = "https://mosh-api.herokuapp.com";
+const URL = "https://moshsocial-api.herokuapp.com";
 
 const API = {
   getUser: id => axios.get(`${URL}/api/user/${id}`, { withCredentials: true }),

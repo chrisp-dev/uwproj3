@@ -27,7 +27,8 @@ export default function Profile(props) {
     API.loggedinuser()
       .then(res => {
         setUser(res.data);
-        API.getUser(res.data.id).then(detail => setDetail(detail.data));
+        API.getUser(res.data.id)
+          .then(detail => setDetail(detail.data));
       })
       .catch(err => console.log(err));
   }, []);
@@ -36,9 +37,7 @@ export default function Profile(props) {
     console.log(user.id)
     if (user.id > 0) {
       API.singleImage(user.id)
-        .then(img => 
-          {console.log(img)
-            setImg(img.data.imageUrl)})
+        .then(img => setImg(img.data.imageUrl))
         .catch(err => console.log(err))
     }
   }, [user.id])

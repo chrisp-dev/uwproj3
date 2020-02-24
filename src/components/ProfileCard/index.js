@@ -8,16 +8,7 @@ export default function ProfileCard({ user, detail }) {
     imageUrl: ''
   })
 
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setImage({
-      ...image,
-      [name]: value
-    });
-  };
-
   useEffect(() => {
-    var imgURL;
 
     const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/delw6elgw/upload"
     const CLOUDINARY_UPLOAD_PRESET = "r6mprs9r"
@@ -39,21 +30,20 @@ export default function ProfileCard({ user, detail }) {
         },
         data: formData
       }).then(function (res) {
-        // console.log(res.data.url)
-        imgURL = res.data.url;
-        console.log(imgURL)
         //SEND THIS URL TO THE IMAGE MODEL
-        API.uploadImage(image)
+        API.uploadImage({
+          imageUrl: res.data.url
+        })
           .then(res => {
             console.log(res.data)
           })
         alert("your image has been uploaded!")
-      }).catch(function (err) {
-        console.error(err)
       })
+        .catch(function (err) {
+          console.error(err)
+        })
     })
   }, [image])
-
 
   return (
     <>
@@ -66,7 +56,8 @@ export default function ProfileCard({ user, detail }) {
                   <div className="relative">
                     <img
                       alt="user"
-                      // TODO: ADD IMAGE ASSOCIATION HERE (user.image or something)
+                      // TODO: ADD IMAGE ASSOCIATION HERE (detail.image or something)
+                      src={detail.imgURL}
                       className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                       style={{ maxWidth: "150px" }}
                     />
@@ -84,10 +75,8 @@ export default function ProfileCard({ user, detail }) {
                     <label className='file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1'
                       htmlFor='file-upload'>
                       <input id='file-upload'
-                      type='file'
-                      onChange={handleInputChange}
-                      value={image.imageUrl}
-                      name='imageURL'
+                        type='file'
+                        name='imageURL'
                       ></input>
                       Select an Image
                     </label>

@@ -18,7 +18,8 @@ export default function Profile(props) {
 
   const [detail, setDetail] = useState({
     zipcode: "",
-    lastName: ""
+    lastName: "",
+    imgURL: ""
   });
 
   useEffect(function() {
@@ -26,6 +27,9 @@ export default function Profile(props) {
       .then(res => {
         setUser(res.data);
         API.getUser(res.data.id).then(detail => setDetail(detail.data));
+      })
+      .then(res => {
+        API.singleImage(res.data.id).then(detail => setDetail(detail.data));
       })
       .catch(err => console.log(err));
   }, []);

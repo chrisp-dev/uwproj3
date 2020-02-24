@@ -15,7 +15,12 @@ const API = {
   },
   postUndo: () => {},
   saveSettings: () => {},
-  uploadImage: () => {},
+  uploadImage: info => {
+    return axios.post(`${URL}/api/image/upload`, info, { withCredentials: true });
+  },
+  singleImage: id => {
+    return axios.get(`${URL}/api/image/${id}`, {withCredentials: true})
+  },
   sendMessage: () => {},
   receiveMessage: id => axios.get(`${URL}/api/message/receiver/${id}`, { withCredentials: true }),
   chatSubscribe: () => {},

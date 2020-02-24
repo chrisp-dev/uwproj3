@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import API from "../../utils/API";
+import React, { useEffect, useState } from "react";
+import API from '../../utils/API'
+import axios from 'axios';
 
-export default function ProfileCard({ user, detail }) {
+export default function ProfileCard({ user, detail, img }) {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -9,6 +10,47 @@ export default function ProfileCard({ user, detail }) {
       setMessages(res.data);
     });
   }, [user.id]);
+  
+  const [image, setImage] = useState({
+    imageUrl: ''
+  })
+
+  useEffect(() => {
+
+    const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/delw6elgw/upload"
+    const CLOUDINARY_UPLOAD_PRESET = "r6mprs9r"
+
+    var fileUpload = document.getElementById("file-upload");
+
+    fileUpload.addEventListener("change", function (event) {
+      var file = event.target.files[0];
+      var formData = new FormData();
+
+      formData.append("file", file);
+      formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+      axios({
+        url: CLOUDINARY_URL,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: formData
+      }).then(function (res) {
+        //SEND THIS URL TO THE IMAGE MODEL
+        API.uploadImage({
+          imageUrl: res.data.url
+        })
+          .then(res => {
+            console.log(res.data)
+          })
+        alert("your image has been uploaded!")
+      })
+        .catch(function (err) {
+          console.error(err)
+        })
+    })
+  }, [image])
 
   return (
     <>
@@ -22,6 +64,8 @@ export default function ProfileCard({ user, detail }) {
                     <img
                       src={user.ImageUrl || "http://localhost:8080/images/silhouette-guitarist.jpg"}
                       alt="user"
+                      // IMAGE ASSOCIATION HERE
+                      src={img}
                       className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                       style={{ maxWidth: "150px" }}
                     />
@@ -34,8 +78,16 @@ export default function ProfileCard({ user, detail }) {
                       type="button"
                       style={{ transition: "all .15s ease" }}
                     >
-                      <a href="/swipe">Start Swiping</a>
-                    </button>
+                      Start Swiping
+                      </button>
+                    <label className='file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1'
+                      htmlFor='file-upload'>
+                      <input id='file-upload'
+                        type='file'
+                        name='imageURL'
+                      ></input>
+                      Select an Image
+                    </label>
                   </div>
                 </div>
                 <div className="w-full lg:w-4/12 px-4 lg:order-1">
@@ -89,4 +141,4 @@ export default function ProfileCard({ user, detail }) {
       </section>
     </>
   );
-}
+};

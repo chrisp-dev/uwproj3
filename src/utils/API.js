@@ -22,7 +22,7 @@ const API = {
     return axios.get(`${URL}/api/image/${id}`, {withCredentials: true})
   },
   sendMessage: () => {},
-  receiveMessage: () => {},
+  receiveMessage: id => axios.get(`${URL}/api/message/receiver/${id}`, { withCredentials: true }),
   chatSubscribe: () => {},
   bulkPost: () => {},
   login: user => {

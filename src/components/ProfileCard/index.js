@@ -29,6 +29,7 @@ export default function ProfileCard() {
         // console.log(res.data.url)
         imgURL = res.data.url;
         console.log(imgURL)
+        //TODO: SEND THIS URL TO THE IMAGE MODEL
         alert("your image has been uploaded!")
       }).catch(function (err) {
         console.error(err)

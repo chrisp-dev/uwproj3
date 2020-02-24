@@ -51,24 +51,24 @@ export default function Swiper(props) {
       e.preventDefault();
       console.log("mouse down");
     },
-    onClick: e => {}
+    onClick: e => { }
   });
 
   return (
-    <animated.div className="inset-0 m-auto w-full h-full max-h-md max-w-md bg-yellow-500" {...bind()} style={{ x, y }}>
+    <animated.div className="inset-0 m-auto w-full h-full max-w-md" {...bind()} style={{ x, y }}>
       <div className="relative w-full h-full max-h-screen">
-        <img className="w-full h-3/4 relative" src="https://placekitten.com/400" alt="kitten" />
+        {/* <img className="w-full h-3/4 relative" src="https://placekitten.com/400" alt="kitten" />
         <div className="relative inset-x-0 bottom-0 w-20 h-20">
           {user.first} {user.last}
-        </div>
-
+        </div> */}
+        {props.children}
         <animated.div className="absolute top-0 right-0 h-16 w-auto" style={{ opacity: swipe.like ? swipe.op : 0 }}>
           <Square text="LIKE" />
         </animated.div>
         <animated.div className="absolute left-0 top-0 h-16 w-auto" style={{ opacity: swipe.nope ? swipe.op : 0 }}>
           <Square text="NOPE" />
         </animated.div>
-        <button
+        {/* <button
           className="button rounded-lg bg-blue-800"
           onClick={() => {
             setSwipe({ nope: true });
@@ -79,7 +79,7 @@ export default function Swiper(props) {
         </button>
         <button className="button rounded-lg bg-blue-800" onClick={() => handleUserSwipe(true)}>
           Like!
-        </button>
+        </button> */}
       </div>
     </animated.div>
   );

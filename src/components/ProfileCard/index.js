@@ -87,6 +87,7 @@ export default function ProfileCard({ user, detail }) {
                       type='file'
                       onChange={handleInputChange}
                       value={image.imageUrl}
+                      name='imageURL'
                       ></input>
                       Select an Image
                     </label>

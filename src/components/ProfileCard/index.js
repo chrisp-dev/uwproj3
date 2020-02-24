@@ -47,7 +47,10 @@ export default function ProfileCard({ user, detail, img }) {
 
   return (
     <>
-      <section className="relative py-16 bg-black" style={{ backgroundImage: "url('https://i.pinimg.com/originals/b3/71/b3/b371b32d4e77f5d45e3661284360d168.gif')" }}>
+      <section
+        className="relative py-16 bg-black"
+        style={{ backgroundImage: "url('http://localhost:8080/images/music_notes.gif')" }}
+      >
         <div className="container mx-auto px-4">
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
             <div className="px-6">
@@ -55,6 +58,7 @@ export default function ProfileCard({ user, detail, img }) {
                 <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                   <div className="relative">
                     <img
+                      src={user.ImageUrl || "http://localhost:8080/images/silhouette-guitarist.jpg"}
                       alt="user"
                       // IMAGE ASSOCIATION HERE
                       src={img}

@@ -2,22 +2,23 @@ import React from "react";
 import ProfileNav from "../components/ProfileNav";
 import Wrapper from "../components/Wrapper";
 import OptionSwipe from "../components/OptionSwipe";
-
-
+import Swiper from '../components/Swiper';
 
 export default function SwipeTest() {
-    return (
-        <div>
+    return (
+        <div>
             <Wrapper>
-            <ProfileNav transparent />
-            <main className="profile-page">
-            <section className="relative block" style={{ height: "1000px" }}>
-                <div className="absolute top-0 w-full h-full bg-center bg-cover" style={{backgroundImage:"url('https://i.pinimg.com/originals/b3/71/b3/b371b32d4e77f5d45e3661284360d168.gif')"}}>
-                    <OptionSwipe />
-                    </div>
+                <ProfileNav transparent />
+                <main className="profile-page">
+                    <section className="relative block" style={{ height: "1000px" }}>
+                        <div className="absolute top-0 w-full h-full bg-center bg-cover" style={{ backgroundImage: "url('http://localhost:8080/images/music_notes.gif')" }}>
+                            <Swiper>
+                                <OptionSwipe />
+                            </Swiper>
+                        </div>
                     </section>
-            </main>
+                </main>
             </Wrapper>
         </div>
-    );
+    );
 }

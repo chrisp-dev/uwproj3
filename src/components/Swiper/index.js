@@ -15,6 +15,7 @@ import Square from "../Square";
  */
 export default function Swiper(props) {
   const { user, handleUserSwipe } = props;
+  console.log("user:", user);
   // const { user, setUsers, handleUserSwipe } = props;
   const [swipe, setSwipe] = useState({ nope: false, like: false });
   const [{ x, y }, setSpring] = useSpring(() => ({ x: 0, y: 0 }));
@@ -51,7 +52,7 @@ export default function Swiper(props) {
       e.preventDefault();
       console.log("mouse down");
     },
-    onClick: e => { }
+    onClick: e => {}
   });
 
   return (

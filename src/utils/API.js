@@ -1,6 +1,6 @@
 import axios from "axios";
-const URL = "http://localhost:8080";
-// const URL = *whatever our deployed heroku link is*
+// const URL = "http://localhost:8080";
+const URL = "https://moshsocial-api.herokuapp.com";
 
 const API = {
   getUser: id => axios.get(`${URL}/api/user/${id}`, { withCredentials: true }),
@@ -19,7 +19,7 @@ const API = {
     return axios.post(`${URL}/api/image/upload`, info, { withCredentials: true });
   },
   singleImage: id => {
-    return axios.get(`${URL}/api/image/${id}`, {withCredentials: true})
+    return axios.get(`${URL}/api/image/${id}`, { withCredentials: true });
   },
   sendMessage: () => {},
   receiveMessage: id => axios.get(`${URL}/api/message/receiver/${id}`, { withCredentials: true }),

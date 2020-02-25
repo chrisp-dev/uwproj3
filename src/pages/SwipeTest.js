@@ -24,7 +24,7 @@ export default function SwipeTest() {
     };
     function rend() {
         if (users.length && user) {
-            return (<Swiper >
+            return (<Swiper user={user} setUsers={setUsers} handleUserSwipe={handleUserSwipe} >
                 <OptionSwipe user={user} setUsers={setUsers} handleUserSwipe={handleUserSwipe} />
             </Swiper>);
         } else {
@@ -42,13 +42,13 @@ export default function SwipeTest() {
     }, []);
 
     useEffect(function () {
-        console.log(user.id)
-        if (user.id > 0) {
+        // console.log(user.id)
+        if (user && user.id > 0) {
             API.singleImage(user.id)
                 .then(img => setImg(img.data.imageUrl))
                 .catch(err => console.log(err))
         }
-    }, [user.id])
+    }, [user])
     return (
         <div>
             <Wrapper>

@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-// import AltNav from "../components/AltNav";
 import ProfileNav from "../components/ProfileNav";
 import ProfileCard from "../components/ProfileCard";
-// other card options,dont remove
-// import Contact from "../components/Contact";
-// import TeamPage from "../components/TeamPage";
-// import FinalCard from "../components/FinalCard";
-// import OtherCard from "../components/OtherCard";
+
 
 export default function Profile(props) {
   const [user, setUser] = useState({
@@ -72,11 +67,6 @@ export default function Profile(props) {
             </svg>
           </div>
         </section>
-        {/* different types of cards, dont remove */}
-        {/* <OtherCard /> */}
-        {/* <FinalCard /> */}
-        {/* <Contact /> */}
-        {/* <TeamPage/> */}
         <ProfileCard user={user} detail={detail} img={img} />
       </main>
     </>

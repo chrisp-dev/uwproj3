@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import API from '../../utils/API'
-import axios from 'axios';
-import {Link} from "react-router-dom";
+import API from "../../utils/API";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import "./style.css";
 
 export default function ProfileCard({ user, detail, img }) {
   const [messages, setMessages] = useState([]);
@@ -11,19 +12,18 @@ export default function ProfileCard({ user, detail, img }) {
       setMessages(res.data);
     });
   }, [user.id]);
-  
-  const [image, setImage] = useState({
-    imageUrl: ''
-  })
+
+  const [image] = useState({
+    imageUrl: ""
+  });
 
   useEffect(() => {
-
-    const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/delw6elgw/upload"
-    const CLOUDINARY_UPLOAD_PRESET = "r6mprs9r"
+    const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/delw6elgw/upload";
+    const CLOUDINARY_UPLOAD_PRESET = "r6mprs9r";
 
     var fileUpload = document.getElementById("file-upload");
 
-    fileUpload.addEventListener("change", function (event) {
+    fileUpload.addEventListener("change", function(event) {
       var file = event.target.files[0];
       var formData = new FormData();
 
@@ -32,30 +32,30 @@ export default function ProfileCard({ user, detail, img }) {
 
       axios({
         url: CLOUDINARY_URL,
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+          "Content-Type": "application/x-www-form-urlencoded"
         },
         data: formData
-      }).then(function (res) {
-        //SEND THIS URL TO THE IMAGE MODEL
-        API.uploadImage({
-          imageUrl: res.data.url
-        })
-          .then(res => {
-            console.log(res.data)
-          })
-        alert("your image has been uploaded!")
       })
-        .catch(function (err) {
-          console.error(err)
+        .then(function(res) {
+          //SEND THIS URL TO THE IMAGE MODEL
+          API.uploadImage({
+            imageUrl: res.data.url
+          }).then(res => {
+            console.log(res.data);
+          });
+          alert("your image has been uploaded!");
         })
-    })
-  }, [image])
+        .catch(function(err) {
+          console.error(err);
+        });
+    });
+  }, [image]);
 
   return (
     <>
-      <section className="relative py-16 bg-black" style={{ backgroundImage: "url('http://localhost:8080/images/music_notes.gif')" }}>
+      <section className="relative py-16 bg-black" style={{ backgroundImage: "url('music_notes.gif')" }}>
         <div className="container mx-auto px-4">
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
             <div className="px-6">
@@ -63,10 +63,8 @@ export default function ProfileCard({ user, detail, img }) {
                 <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                   <div className="relative">
                     <img
-                      src={user.ImageUrl || "http://localhost:8080/images/silhouette-guitarist.jpg"}
+                      src={img || "silhouette-guitarist.jpg"}
                       alt="user"
-                      // IMAGE ASSOCIATION HERE
-                      src={img}
                       className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                       style={{ maxWidth: "150px" }}
                     />
@@ -75,22 +73,23 @@ export default function ProfileCard({ user, detail, img }) {
                 <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
                   <div className="py-6 px-3 mt-32 sm:mt-0">
                     <Link to="/swipetest">
-                    <button
-                      className="bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
-                      type="button"
-                      style={{ transition: "all .15s ease" }}
+                      <button
+                        className="bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                        type="button"
+                        style={{ transition: "all .15s ease" }}
                       >
-                      Start Swiping
+                        Start Swiping
                       </button>
-                      </Link>
-                    <label className='file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1'
-                      htmlFor='file-upload'>
-                      <input id='file-upload'
-                        type='file'
-                        name='imageURL'
-                      ></input>
-                      Select an Image
-                    </label>
+                    </Link>
+                    <div className="card">
+                      <label
+                        className="file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                        htmlFor="file-upload"
+                      >
+                        <input id="file-upload" type="file" name="imageURL" style={{ display: "none" }} />
+                        Select an Image
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <div className="w-full lg:w-4/12 px-4 lg:order-1">
@@ -132,9 +131,9 @@ export default function ProfileCard({ user, detail, img }) {
                       I play multiple instruments and currently I am searching for people to create a band. Looking for someone to play drums especially. I
                       enjoy all music genres.
                     </p>
-                    <a href="#pablo" className="font-normal text-red-700" onClick={e => e.preventDefault()}>
-                      Edit
-                    </a>
+                    <Link to="/edit">
+                      <span className="font-normal text-red-700">Edit</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -144,4 +143,4 @@ export default function ProfileCard({ user, detail, img }) {
       </section>
     </>
   );
-};
+}

@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
 import API from '../../utils/API'
 import axios from 'axios';
-<<<<<<< HEAD
 import {Link} from "react-router-dom";
 import "./style.css"
-=======
-import { Link } from "react-router-dom";
->>>>>>> development
 
 export default function ProfileCard({ user, detail, img }) {
   const [messages, setMessages] = useState([]);
@@ -85,13 +81,9 @@ export default function ProfileCard({ user, detail, img }) {
                       >
                         Start Swiping
                       </button>
-<<<<<<< HEAD
                       </Link>
                       <div className= "card">
 
-=======
-                    </Link>
->>>>>>> development
                     <label className='file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1'
                       htmlFor='file-upload'>
                       <input id='file-upload'

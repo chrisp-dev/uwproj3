@@ -56,7 +56,7 @@ export default function SwipeTest() {
           <section className="relative block" style={{ height: "1000px" }}>
             <div
               className="absolute top-0 w-full h-full bg-center bg-cover"
-              style={{ backgroundImage: "url('https://moshsocial-api.herokuapp.com/images/music_notes.gif')" }}
+              style={{ backgroundImage: "url('music_notes.gif')" }}
             >
               {rend()}
             </div>

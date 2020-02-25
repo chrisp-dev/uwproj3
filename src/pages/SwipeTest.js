@@ -36,7 +36,7 @@ export default function SwipeTest() {
                 console.log('it worked?', data);
                 setUsers(data);
             }).catch(err => console.error(err));
-    });
+    }, []);
 
     useEffect(function () {
         API.loggedinuser()

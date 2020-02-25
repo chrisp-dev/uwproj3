@@ -63,7 +63,7 @@ export default function ProfileCard({ user, detail, img }) {
                 <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                   <div className="relative">
                     <img
-                      src={user.ImageUrl || "https://moshsocial-api.herokuapp.com/images/silhouette-guitarist.jpg"}
+                      src={img || "https://moshsocial-api.herokuapp.com/images/silhouette-guitarist.jpg"}
                       alt="user"
                       className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                       style={{ maxWidth: "150px" }}

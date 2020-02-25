@@ -3,7 +3,7 @@ import API from "../utils/API";
 import ProfileNav from "../components/ProfileNav";
 import ProfileCard from "../components/ProfileCard";
 
-export default function Profile(props) {
+export default function Profile() {
   const [user, setUser] = useState({
     id: 0,
     email: "",

@@ -14,15 +14,7 @@ import Layout from "./components/Layout";
 // import API from "./utils/API";
 
 function App() {
-  // useEffect(function() {
-  //   API.loggedinuser()
-  //     .then(res => {
-  //       console.log(res.data);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }, []);
+  
 
   return (
     <Router>

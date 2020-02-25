@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function OptionSwipe({user}) {
+export default function OptionSwipe({user, handleUserSwipe}) {
 
     console.log("woop woop woop ", user)
     return (
@@ -27,8 +27,8 @@ export default function OptionSwipe({user}) {
                             </div>
                             <br></br>
                             <div className="flex">
-                                <button className="flex-1 rounded-full border-2 border-grey font-semibold text-grey-dark px-4 py-2 bg-transparent hover:bg-red-700 text-red-700 hover:text-white">Ignore<i className="fa fa-times ml-4 text-grey-dark text-2xl"></i> </button>
-                                <button className="flex-1 rounded-full border-2 border-grey font-semibold text-grey-dark px-4 py-2 bg-transparent hover:bg-green-500 text-green-500 hover:text-white">Connect<i className="fa fa-check ml-4 text-grey-dark text-2xl"></i></button>
+                                <button className="flex-1 rounded-full border-2 border-grey font-semibold text-grey-dark px-4 py-2 bg-transparent hover:bg-red-700 text-red-700 hover:text-white" onClick={() => handleUserSwipe(false)}>Ignore<i className="fa fa-times ml-4 text-grey-dark text-2xl"></i> </button>
+                                <button className="flex-1 rounded-full border-2 border-grey font-semibold text-grey-dark px-4 py-2 bg-transparent hover:bg-green-500 text-green-500 hover:text-white" onClick={() => handleUserSwipe(true)}>Connect<i className="fa fa-check ml-4 text-grey-dark text-2xl"></i></button>
                             </div>
                             <br />
                         </div>

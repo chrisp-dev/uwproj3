@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import API from '../../utils/API'
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import "./style.css"
 
 export default function ProfileCard({ user, detail, img }) {
   const [messages, setMessages] = useState([]);
@@ -80,15 +81,18 @@ export default function ProfileCard({ user, detail, img }) {
                       >
                         Start Swiping
                       </button>
-                    </Link>
+                      </Link>
+                      <div className= "card">
+
                     <label className='file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1'
                       htmlFor='file-upload'>
                       <input id='file-upload'
                         type='file'
                         name='imageURL'
-                      ></input>
+                        style = {{display:"none"}}/>
                       Select an Image
                     </label>
+                        </div>
                   </div>
                 </div>
                 <div className="w-full lg:w-4/12 px-4 lg:order-1">
@@ -130,9 +134,12 @@ export default function ProfileCard({ user, detail, img }) {
                       I play multiple instruments and currently I am searching for people to create a band. Looking for someone to play drums especially. I
                       enjoy all music genres.
                     </p>
-                    <a href="#pablo" className="font-normal text-red-700" onClick={e => e.preventDefault()}>
+                    <Link to="/edit">
+
+                    <a className="font-normal text-red-700" >
                       Edit
                     </a>
+                    </Link>
                   </div>
                 </div>
               </div>

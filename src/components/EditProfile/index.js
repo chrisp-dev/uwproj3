@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
+import {Link} from "react-router-dom";
 
-export default function SignIn() {
+export default function EditProfile() {
   const [signup, setSignUp] = useState({
     email: "",
     password: "",
@@ -49,7 +50,7 @@ export default function SignIn() {
                   <div className="rounded-t mb-0 px-6 py-6"></div>
                   <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                     <div className="text-gray-500 text-center mb-3 font-bold">
-                      <h1>Create Your Account</h1>
+                      <h1>Edit Profile</h1>
                       <hr className="mt-6 border-b-1 border-gray-400" />
                     </div>
                     <br></br>
@@ -68,7 +69,6 @@ export default function SignIn() {
                             type="text"
                             placeholder="First"
                           />
-                          <p className="text-red-500 text-xs italic">Please fill out this field.</p>
                         </div>
                         <div className="w-full md:w-1/2 px-3">
                           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-last-name">
@@ -113,7 +113,22 @@ export default function SignIn() {
                             type="password"
                             placeholder="******************"
                           />
-                          <p className="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap -mx-3 mb-6">
+                        <div className="w-full px-3">
+                          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
+                            Biography
+                          </label>
+                          <textarea
+                            // onChange={handleInputChange}
+                            // value={signup.password}
+                            // name="text"
+                            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="textarea"
+                            type="text"
+                            placeholder="Tell us about yourself...."
+                          />
                         </div>
                       </div>
                       <div className="flex flex-wrap -mx-3 mb-6">
@@ -166,7 +181,7 @@ export default function SignIn() {
                               className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                               id="grid-state"
                             >
-                             <option value="AL">Alabama</option>
+                              <option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>
 	<option value="AR">Arkansas</option>
@@ -241,13 +256,15 @@ export default function SignIn() {
                         </div>
 
                         <div className="text-center center mt-6">
+                        <Link to="/profile">
                           <button
-                            className="center bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
+                            className="center bg-red-700 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
                             type="submit"
                             style={{ transition: "all .15s ease" }}
                           >
-                            Sign Up
+                            Update
                           </button>
+                          </Link>
                         </div>
                       </div>
                     </form>

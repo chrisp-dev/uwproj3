@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from '../../utils/API'
 import axios from 'axios';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ProfileCard({ user, detail, img }) {
   const [messages, setMessages] = useState([]);
@@ -11,7 +11,7 @@ export default function ProfileCard({ user, detail, img }) {
       setMessages(res.data);
     });
   }, [user.id]);
-  
+
   const [image, setImage] = useState({
     imageUrl: ''
   })
@@ -55,7 +55,7 @@ export default function ProfileCard({ user, detail, img }) {
 
   return (
     <>
-      <section className="relative py-16 bg-black" style={{ backgroundImage: "url('http://localhost:8080/images/music_notes.gif')" }}>
+      <section className="relative py-16 bg-black" style={{ backgroundImage: "url('https://moshsocial-api.herokuapp.com/images/music_notes.gif')" }}>
         <div className="container mx-auto px-4">
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
             <div className="px-6">
@@ -63,10 +63,8 @@ export default function ProfileCard({ user, detail, img }) {
                 <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                   <div className="relative">
                     <img
-                      src={user.ImageUrl || "http://localhost:8080/images/silhouette-guitarist.jpg"}
+                      src={img || "https://moshsocial-api.herokuapp.com/images/silhouette-guitarist.jpg"}
                       alt="user"
-                      // IMAGE ASSOCIATION HERE
-                      src={img}
                       className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                       style={{ maxWidth: "150px" }}
                     />
@@ -75,14 +73,14 @@ export default function ProfileCard({ user, detail, img }) {
                 <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
                   <div className="py-6 px-3 mt-32 sm:mt-0">
                     <Link to="/swipetest">
-                    <button
-                      className="bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
-                      type="button"
-                      style={{ transition: "all .15s ease" }}
+                      <button
+                        className="bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                        type="button"
+                        style={{ transition: "all .15s ease" }}
                       >
-                      Start Swiping
+                        Start Swiping
                       </button>
-                      </Link>
+                    </Link>
                     <label className='file-upload-container bg-red-700 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1'
                       htmlFor='file-upload'>
                       <input id='file-upload'

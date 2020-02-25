@@ -8,14 +8,6 @@ import { config } from '../utils/Constants';
 
 export default function SwipeTest() {
 
-    const [detail, setDetail] = useState({
-        id: 0,
-        email: "",
-        firstName: "",
-        zipcode: "",
-        lastName: ""
-    });
-
     const [img, setImg] = useState("")
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({});
@@ -32,8 +24,8 @@ export default function SwipeTest() {
     };
     function rend() {
         if (users.length && user) {
-            return (<Swiper user={user} setUsers={setUsers} handleUserSwipe={handleUserSwipe} >
-                <OptionSwipe />
+            return (<Swiper >
+                <OptionSwipe user={user} setUsers={setUsers} handleUserSwipe={handleUserSwipe} />
             </Swiper>);
         } else {
             return <h1 className="m-16 rounded-lg shadow-inner bg-white w-full p-10">No users near you.</h1>;
@@ -44,18 +36,9 @@ export default function SwipeTest() {
         API.loadSwipees()
             .then(data => {
                 console.log('it worked?', data);
-                setUsers(data);
+                setUsers(data.data);
+                setUser(data.data[0] || null);
             }).catch(err => console.error(err));
-    }, []);
-
-    useEffect(function () {
-        API.loggedinuser()
-            .then(res => {
-                setUser(res.data);
-                API.getUser(res.data.id)
-                    .then(detail => setDetail(detail.data));
-            })
-            .catch(err => console.log(err));
     }, []);
 
     useEffect(function () {

@@ -3,14 +3,14 @@ import API from '../../utils/API'
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
-export default function ProfileCard({ user, detail, img }) {
+export default function ProfileCard({ detail, img }) {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    API.receiveMessage(user.id).then(res => {
+    API.receiveMessage(detail.id).then(res => {
       setMessages(res.data);
     });
-  }, [user.id]);
+  }, [detail.id]);
 
   const [image, setImage] = useState({
     imageUrl: ''
@@ -109,7 +109,7 @@ export default function ProfileCard({ user, detail, img }) {
                 </div>
               </div>
               <div className="text-center mt-12">
-                <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">{user.firstName}</h3>
+                <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">{detail.firstName}</h3>
                 <div className="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
                   <i className="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
                   {detail.zipcode}

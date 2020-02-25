@@ -3,7 +3,6 @@ import API from "../utils/API";
 import ProfileNav from "../components/ProfileNav";
 import ProfileCard from "../components/ProfileCard";
 
-
 export default function Profile(props) {
   const [user, setUser] = useState({
     id: 0,
@@ -16,26 +15,31 @@ export default function Profile(props) {
     lastName: ""
   });
 
-  const [img, setImg] = useState("")
+  const [img, setImg] = useState("");
 
-  useEffect(function () {
+  useEffect(function() {
     API.loggedinuser()
       .then(res => {
         setUser(res.data);
-        API.getUser(res.data.id)
-          .then(detail => setDetail(detail.data));
+        API.getUser(res.data.id).then(detail => setDetail(detail.data));
       })
       .catch(err => console.log(err));
   }, []);
 
-  useEffect(function () {
-    console.log(user.id)
-    if (user.id > 0) {
-      API.singleImage(user.id)
-        .then(img => setImg(img.data.imageUrl))
-        .catch(err => console.log(err))
-    }
-  }, [user.id])
+  useEffect(
+    function() {
+      if (user.id > 0) {
+        API.singleImage(user.id)
+          .then(img => {
+            if (img.data) {
+              setImg(img.data.imageUrl);
+            }
+          })
+          .catch(err => console.log(err));
+      }
+    },
+    [user.id]
+  );
 
   return (
     <>

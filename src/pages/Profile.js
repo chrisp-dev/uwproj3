@@ -9,7 +9,7 @@ import ProfileCard from "../components/ProfileCard";
 // import FinalCard from "../components/FinalCard";
 // import OtherCard from "../components/OtherCard";
 
-export default function Profile(props) {
+export default function Profile() {
   const [user, setUser] = useState({
     id: 0,
     email: "",

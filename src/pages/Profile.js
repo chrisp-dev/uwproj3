@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-// import AltNav from "../components/AltNav";
 import ProfileNav from "../components/ProfileNav";
 import ProfileCard from "../components/ProfileCard";
-// other card options,dont remove
-// import Contact from "../components/Contact";
-// import TeamPage from "../components/TeamPage";
-// import FinalCard from "../components/FinalCard";
-// import OtherCard from "../components/OtherCard";
 
 export default function Profile() {
   const [user, setUser] = useState({
@@ -21,26 +15,31 @@ export default function Profile() {
     lastName: ""
   });
 
-  const [img, setImg] = useState("")
+  const [img, setImg] = useState("");
 
-  useEffect(function () {
+  useEffect(function() {
     API.loggedinuser()
       .then(res => {
         setUser(res.data);
-        API.getUser(res.data.id)
-          .then(detail => setDetail(detail.data));
+        API.getUser(res.data.id).then(detail => setDetail(detail.data));
       })
       .catch(err => console.log(err));
   }, []);
 
-  useEffect(function () {
-    console.log(user.id)
-    if (user.id > 0) {
-      API.singleImage(user.id)
-        .then(img => setImg(img.data.imageUrl))
-        .catch(err => console.log(err))
-    }
-  }, [user.id])
+  useEffect(
+    function() {
+      if (user.id > 0) {
+        API.singleImage(user.id)
+          .then(img => {
+            if (img.data) {
+              setImg(img.data.imageUrl);
+            }
+          })
+          .catch(err => console.log(err));
+      }
+    },
+    [user.id]
+  );
 
   return (
     <>
@@ -72,11 +71,6 @@ export default function Profile() {
             </svg>
           </div>
         </section>
-        {/* different types of cards, dont remove */}
-        {/* <OtherCard /> */}
-        {/* <FinalCard /> */}
-        {/* <Contact /> */}
-        {/* <TeamPage/> */}
         <ProfileCard user={user} detail={detail} img={img} />
       </main>
     </>

@@ -4,7 +4,6 @@ import API from "../../utils/API";
 export default function Logout(props) {
   function handleClick(event) {
     event.preventDefault();
-    console.log("weeeoeeeeoeee weeeeoeeeoeee");
     API.logout()
       .then(res => {
         console.log(res.data);

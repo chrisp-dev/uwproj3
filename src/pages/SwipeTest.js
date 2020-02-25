@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import ProfileNav from "../components/ProfileNav";
 import Wrapper from "../components/Wrapper";
 import OptionSwipe from "../components/OptionSwipe";
-import Swiper from '../components/Swiper';
+import Swiper from "../components/Swiper";
 import API from "../utils/API";
-import { config } from '../utils/Constants';
+// import { config } from '../utils/Constants';
 
 export default function SwipeTest() {
 

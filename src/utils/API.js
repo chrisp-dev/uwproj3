@@ -1,7 +1,6 @@
 import axios from "axios";
 import config from "./Constants";
 const URL = config.API_URL;
-// const URL = *whatever our deployed heroku link is*
 
 const API = {
   getUser: id => axios.get(`${URL}/api/user/${id}`, { withCredentials: true }),

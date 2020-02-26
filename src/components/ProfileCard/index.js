@@ -162,15 +162,17 @@ export default function ProfileCard({ detail, img }) {
                 <div className="flex flex-wrap justify-center">
 
                   <div className="w-full lg:w-9/12 px-4">
-
-                    {!showEdit ?
-                      <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                        {bio}
-                      </p> :
-                      <textarea
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        name="catchPhrase" cols="10" value={bio} onChange={handleInputChange} ></textarea>
-                    }
+                    {!showEdit ? (
+                      <p className="mb-4 text-lg leading-relaxed text-gray-800">{detail.bio}</p>
+                    ) : (
+                        <textarea
+                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          name="bio"
+                          cols="10"
+                          value={bio}
+                          onChange={handleInputChange}
+                        ></textarea>
+                      )}
                     {editSaveButtons()}
 
                   </div>

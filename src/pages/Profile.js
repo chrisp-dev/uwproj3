@@ -19,7 +19,7 @@ export default function Profile() {
 
   const [img, setImg] = useState("");
 
-  useEffect(function() {
+  useEffect(function () {
     API.loggedinuser()
       .then(res => {
         setUser(res.data);
@@ -31,7 +31,7 @@ export default function Profile() {
   }, []);
 
   useEffect(
-    function() {
+    function () {
       if (user.id > 0) {
         API.singleImage(user.id)
           .then(img => {

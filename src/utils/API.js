@@ -10,6 +10,9 @@ const API = {
   postNope: user => axios.post(`${URL}/api/swipe/nope/${user.Id}`, {}, { withCredentials: true }),
   postUndo: () => {},
   saveSettings: () => {},
+  updateBio: bio => {
+    return axios.put(`${URL}/api/user/bio`, bio, { withCredentials: true });
+  },
   uploadImage: info => {
     return axios.post(`${URL}/api/image/upload`, info, { withCredentials: true });
   },

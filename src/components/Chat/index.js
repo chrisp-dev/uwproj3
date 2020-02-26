@@ -21,7 +21,7 @@ const Chat = ({ location }) => {
   const ENDPOINT = config.API_URL;
 
   useEffect(() => {
-    const { name, room } = queryString.parse(location.search);
+    const { name, room } = queryString.parse(window.location.search);
 
     socket = io(ENDPOINT);
 
@@ -33,7 +33,7 @@ const Chat = ({ location }) => {
         alert(error);
       }
     });
-  }, [ENDPOINT, location.search]);
+  }, [ENDPOINT]);
 
   useEffect(() => {
     socket.on("message", message => {

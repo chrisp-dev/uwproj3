@@ -130,8 +130,7 @@ export default function ProfileCard({ detail, img }) {
                 <div className="flex flex-wrap justify-center">
                   <div className="w-full lg:w-9/12 px-4">
                     <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                      I play multiple instruments and currently I am searching for people to create a band. Looking for someone to play drums especially. I
-                      enjoy all music genres.
+                      {detail.bio}
                     </p>
                     <Link to="/edit">
                       <span className="font-normal text-red-700">Edit</span>

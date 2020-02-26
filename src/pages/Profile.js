@@ -13,7 +13,8 @@ export default function Profile() {
   const [detail, setDetail] = useState({
     zipcode: "",
     lastName: "",
-    instrument: ""
+    instrument: "",
+    bio: ""
   });
 
   const [img, setImg] = useState("");

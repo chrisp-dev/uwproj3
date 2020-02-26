@@ -14,6 +14,9 @@ const API = {
   uploadImage: info => {
     return axios.post(`${URL}/api/image/upload`, info, { withCredentials: true });
   },
+  updateBio: bio => {
+    return axios.put(`${URL}/api/user/bio`, bio, { withCredentials: true });
+  },
   singleImage: id => {
     return axios.get(`${URL}/api/image/${id}`, { withCredentials: true });
   },

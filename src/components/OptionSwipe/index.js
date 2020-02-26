@@ -25,7 +25,7 @@ export default function OptionSwipe({ user, handleUserSwipe }) {
               </div>
               <div className="p-4">
                 <p className="text-gray-500">
-                  Tons of cool information about me. If I could talk about one thing only I would talk about me. Always. I know nothing.
+                  {user.bio}
                 </p>
               </div>
               <br></br>

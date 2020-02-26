@@ -7,7 +7,7 @@ export default function MessageRow(props) {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
 
-  useEffect(function() {
+  useEffect(function () {
     API.loggedinuser()
       .then(res => {
         setUserId(JSON.stringify(res.data.id));
@@ -36,7 +36,7 @@ export default function MessageRow(props) {
   }
 
   return (
-    <div className="row flex" onClick={handleClick}>
+    <div className="row flex" onClick={handleClick} style={{ backgroundColor: 'white' }}>
       <Image image={props.image} />
       {/* TODO: SOME MESSAGE PREVIEW HERE */}
       <p>{props.preview}</p>

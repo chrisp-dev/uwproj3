@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from 'react-router-dom';
 
 // import Navbar from "../Navbar";
 // import Footer from "../Footer";
@@ -12,14 +13,12 @@ export default function Landing() {
           className="relative pt-16 pb-32 flex content-center items-center justify-center"
           style={{
             minHeight: "75vh"
-          }}
-        >
+          }}>
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage: "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')"
-            }}
-          >
+            }}>
             <span id="blackOverlay" className="w-full h-full absolute opacity-75 bg-black"></span>
           </div>
           <div className="container relative mx-auto">
@@ -34,9 +33,8 @@ export default function Landing() {
                     <button
                       className="bg-gray-900 text-red-700 active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                       type="button"
-                      style={{ transition: "all .15s ease" }}
-                    >
-                      <a href="/signup">Sign Up</a>
+                      style={{ transition: "all .15s ease" }}>
+                      <Link to="/signup">Sign Up</Link>
                     </button>
                   </div>
                 </div>

@@ -4,12 +4,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-export default function ProfileCard({ detail, img }) {
+export default function ProfileCard({ user, setBio, detail, img }) {
   const [messages, setMessages] = useState([]);
   const [showEdit, setShowEdit] = useState(false);
-
-  const [bio, setBio] = useState(detail.bio);
-
 
   useEffect(() => {
     API.receiveMessage(detail.id).then(res => {
@@ -66,7 +63,10 @@ export default function ProfileCard({ detail, img }) {
     let value = event.target.value;
 
     // Updating the input's state
-    setBio(value);
+    setBio({
+      ...detail,
+      bio: value
+    });
   };
 
   const editSaveButtons = () => {
@@ -79,7 +79,7 @@ export default function ProfileCard({ detail, img }) {
     } else {
       return (<button onClick={() => {
         toggle();
-        API.updateBio({ bio: bio }).then(console.log);
+        API.updateBio({ bio: detail.bio }).then(console.log);
       }}><span className="font-normal text-green-700">Save</span></button>)
     }
   }
@@ -169,7 +169,7 @@ export default function ProfileCard({ detail, img }) {
                           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                           name="bio"
                           cols="10"
-                          value={bio}
+                          value={detail.bio}
                           onChange={handleInputChange}
                         ></textarea>
                       )}

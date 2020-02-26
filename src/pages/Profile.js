@@ -75,7 +75,7 @@ export default function Profile() {
             </svg>
           </div>
         </section>
-        <ProfileCard user={user} detail={detail} img={img} />
+        <ProfileCard user={user} setBio={setDetail} detail={detail} img={img} />
       </main>
     </>
   );

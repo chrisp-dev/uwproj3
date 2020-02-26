@@ -20,7 +20,7 @@ const Chat = ({ location }) => {
   const ENDPOINT = "http://localhost:8080";
 
   useEffect(() => {
-    const { name, room } = queryString.parse(location.search);
+    const { name, room } = queryString.parse(window.location.search);
 
     socket = io(ENDPOINT);
 
@@ -32,7 +32,7 @@ const Chat = ({ location }) => {
         alert(error);
       }
     });
-  }, [ENDPOINT, location.search]);
+  }, [ENDPOINT]);
 
   useEffect(() => {
     socket.on("message", message => {

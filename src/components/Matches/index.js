@@ -3,7 +3,16 @@ import Head from "./message-bits/Head";
 import MessageBody from "./message-bits/MessageBody";
 
 export default function Messages(props) {
-  const [messages] = useState([
+  const [matches, setMatches] = useState([
+    { name: 'Jay', image: 'https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512' },
+    { name: 'Jay', image: 'https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512' },
+    { name: 'Jay', image: 'https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512' },
+    { name: 'Jay', image: 'https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512' },
+    { name: 'Jay', image: 'https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512' },
+    { name: 'Jay', image: 'https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512' },
+    { name: 'Jay', image: 'https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512' },
+  ]);
+  const [messages, setMessages] = useState([
     // const [messages, setMessage] = useState([
     {
       id: 69,
@@ -13,10 +22,12 @@ export default function Messages(props) {
     }
   ]);
 
+
+
   return (
-    <section className="relative py-16 bg-black" style={{ backgroundImage: "url('music_notes.gif')" }}>
-      <div className="container mx-auto px-4">
-        <Head message={messages[0]} />
+    <section className="relative h-full w-full py-16">
+      <div className="container mx-auto h-full px-4">
+        <Head matches={matches} />
         <MessageBody message={messages[0]} />
       </div>
     </section>

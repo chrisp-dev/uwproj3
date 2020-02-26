@@ -115,14 +115,16 @@ export default function ProfileCard({ detail, img }) {
                   <i className="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
                   {detail.zipcode}
                 </div>
-                <div className="mb-2 text-gray-700 mt-10">
-                  <i className="fas fa-briefcase mr-2 text-lg text-gray-800"></i>
-                  Bass Guitarist - 10 years experience
-                </div>
-                <div className="mb-2 text-gray-700">
-                  <i className="fas fa-university mr-2 text-lg text-gray-800"></i>
-                  Lead Singer - 10 years experience
-                </div>
+                {detail.Roles
+                  ? detail.Roles.map((r, i) => {
+                      return (
+                        <div key={i} className="mb-2 text-gray-700">
+                          <i className="fas fa-briefcase mr-2 text-lg text-gray-800"></i>
+                          {r.role} ({r.expertise})
+                        </div>
+                      );
+                    })
+                  : "Everybody can do something"}
               </div>
               <div className="mt-10 py-10 border-t border-gray-800 text-center">
                 <div className="flex flex-wrap justify-center">

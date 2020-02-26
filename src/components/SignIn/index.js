@@ -7,7 +7,8 @@ export default function SignIn() {
     password: "",
     firstName: "",
     lastName: "",
-    zipcode: ""
+    zipcode: "",
+    instrument: ""
   });
 
   const handleInputChange = event => {
@@ -124,6 +125,8 @@ export default function SignIn() {
                             <select
                               className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                               id="grid-instrument"
+                              name="instrument"
+                              onChange={handleInputChange}
                             >
                               <option>Guitar</option>
                               <option>Drums</option>

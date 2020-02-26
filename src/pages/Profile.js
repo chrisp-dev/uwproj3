@@ -27,7 +27,7 @@ export default function Profile() {
           setDetail(detail.data);
         });
       })
-      .catch(err => console.log(err));
+      .catch(err => (window.location = "/"));
   }, []);
 
   useEffect(

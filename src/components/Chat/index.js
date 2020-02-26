@@ -6,6 +6,7 @@ import TextContainer from "../TextContainer";
 import Messages from "../Messages";
 import InfoBar from "../InfoBar";
 import Input from "../Input";
+import config from "../../utils/Constants";
 
 import "./style.css";
 
@@ -17,7 +18,7 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = "http://localhost:8080";
+  const ENDPOINT = config.API_URL;
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);

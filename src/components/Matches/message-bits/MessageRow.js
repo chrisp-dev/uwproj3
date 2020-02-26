@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Image from "./Image";
 import API from "../../../utils/API";
+import config from "../../../utils/Constants";
 
 export default function MessageRow(props) {
   const [userId, setUserId] = useState("");
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
 
-  useEffect(function () {
+  useEffect(function() {
     API.loggedinuser()
       .then(res => {
         setUserId(JSON.stringify(res.data.id));
@@ -20,13 +21,11 @@ export default function MessageRow(props) {
 
   function handleClick(event) {
     event.preventDefault();
-    console.log("weeeoeeeeoeee weeeeoeeeoeee");
     if (userId) {
       console.log(userId);
       console.log(JSON.stringify(props.id));
       setRoom(props.id + userId);
-      //TODO: CHANGE HREF LINK ------------------------------------------------------------------
-      window.location.href = `http://localhost:3000/chat/chat?name=${name}&room=${room}`;
+      window.location.href = `${config.API_URL}/chat/chat?name=${name}&room=${room}`;
       // chat room name = userid + props id
       // chat participant name = props.name
     } else {
@@ -36,7 +35,7 @@ export default function MessageRow(props) {
   }
 
   return (
-    <div className="row flex" onClick={handleClick} style={{ backgroundColor: 'white' }}>
+    <div className="row flex" onClick={handleClick} style={{ backgroundColor: "white" }}>
       <Image image={props.image} />
       {/* TODO: SOME MESSAGE PREVIEW HERE */}
       <p>{props.preview}</p>

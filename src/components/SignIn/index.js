@@ -37,19 +37,18 @@ export default function SignIn() {
       <main>
         <section className="relative w-full h-full">
           <div
-            className="absolute top-0 w-full h-full bg-gray-900"
+            className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
-              backgroundImage: "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')",
-              backgroundSize: "100%",
-              backgroundRepeat: "no-repeat"
-            }}
-          ></div>
+              backgroundImage: "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')"
+            }}>
+            <span id="blackOverlay" className="w-full h-full absolute opacity-75 bg-black"></span>
+          </div>
           <div className="container mx-auto px-4 h-full">
-            <div className="flex content-center items-center justify-center h-full">
-              <div className="w-full lg:w-4/12 px-4">
+            <div className="flex h-full">
+              <div className="w-full lg:w-4/12 justify-center mt-16">
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-black border-0">
                   <div className="rounded-t mb-0 px-6 py-6"></div>
-                  <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+                  <div className="flex-auto px-4 lg:px-10 py-10 pt-0 mx-auto">
                     <div className="text-gray-500 text-center mb-3 font-bold">
                       <h1>Create Your Account</h1>
                       <hr className="mt-6 border-b-1 border-gray-400" />
@@ -68,8 +67,7 @@ export default function SignIn() {
                             className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                             id="grid-first-name"
                             type="text"
-                            placeholder="First"
-                          />
+                            placeholder="First" />
                         </div>
                         <div className="w-full md:w-1/2 px-3">
                           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-last-name">
@@ -82,8 +80,7 @@ export default function SignIn() {
                             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-last-name"
                             type="text"
-                            placeholder="Last"
-                          />
+                            placeholder="Last" />
                         </div>
                       </div>
                       <div className="relative w-full mb-3">
@@ -97,8 +94,7 @@ export default function SignIn() {
                           type="email"
                           className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
                           placeholder="Email"
-                          style={{ transition: "all .15s ease" }}
-                        />
+                          style={{ transition: "all .15s ease" }} />
                       </div>
                       <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">
@@ -129,8 +125,7 @@ export default function SignIn() {
                             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="textarea"
                             type="text"
-                            placeholder="Tell us about yourself...."
-                          />
+                            placeholder="Tell us about yourself...." />
                         </div>
                       </div>
                       <div className="flex flex-wrap -mx-3 mb-6">
@@ -143,8 +138,7 @@ export default function SignIn() {
                               className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                               id="grid-instrument"
                               name="instrument"
-                              onChange={handleInputChange}
-                            >
+                              onChange={handleInputChange}>
                               <option>Guitar</option>
                               <option>Drums</option>
                               <option>Piano</option>
@@ -255,16 +249,14 @@ export default function SignIn() {
                             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-zip"
                             type="text"
-                            placeholder="98116"
-                          />
+                            placeholder="98116" />
                         </div>
 
                         <div className="text-center center mt-6">
                           <button
                             className="center bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
                             type="submit"
-                            style={{ transition: "all .15s ease" }}
-                          >
+                            style={{ transition: "all .15s ease" }}>
                             Sign Up
                           </button>
                         </div>

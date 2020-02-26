@@ -14,9 +14,11 @@ export default function Messages(props) {
   ]);
 
   return (
-    <div>
-      <Head message={messages[0]} />
-      <MessageBody message={messages[0]} />
-    </div>
+    <section className="relative py-16 bg-black" style={{ backgroundImage: "url('music_notes.gif')" }}>
+      <div className="container mx-auto px-4">
+        <Head message={messages[0]} />
+        <MessageBody message={messages[0]} />
+      </div>
+    </section>
   );
 }

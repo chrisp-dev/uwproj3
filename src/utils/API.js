@@ -6,13 +6,11 @@ const API = {
   getUser: id => axios.get(`${URL}/api/user/${id}`, { withCredentials: true }),
   getUsers: () => {},
   loadSwipees: () => axios.get(`${URL}/api/swipe/load`, { withCredentials: true }),
-  postLike: user => axios.post(`${URL}/api/swipe/like/${user.Id}`, {}, { withCredentials: true }),
-  postNope: user => axios.post(`${URL}/api/swipe/nope/${user.Id}`, {}, { withCredentials: true }),
-  postUndo: () => {},
-  saveSettings: () => {},
-  updateBio: bio => {
-    return axios.put(`${URL}/api/user/bio`, bio, { withCredentials: true });
-  },
+  postLike: user => axios.post(`${URL}/api/swipe/like/${user.Id}`,{}, { withCredentials: true }),
+  postNope: user => axios.post(`${URL}/api/swipe/nope/${user.Id}`,{}, { withCredentials: true }),
+  getMatches: () => axios.get(`${URL}/api/swipe/matches`, { withCredentials: true }),
+  postUndo: () => { },
+  saveSettings: () => { },
   uploadImage: info => {
     return axios.post(`${URL}/api/image/upload`, info, { withCredentials: true });
   },

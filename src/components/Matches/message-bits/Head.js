@@ -4,7 +4,7 @@ import './style.css'
 
 export default function Head (props) {
     return (
-        <div className='row flex horizontal'>
+        <div className='row flex horizontal' style={{ backgroundColor: 'white' }}>
             {/* TODO: make it so that it loads however many matches you have */}
             <Image image={props.message.image}/>
             <Image image={props.message.image}/>

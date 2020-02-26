@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProfileNav from "../components/ProfileNav";
+import SwipeNav from "../components/SwipeNav";
 import Wrapper from "../components/Wrapper";
 import OptionSwipe from "../components/OptionSwipe";
 import Swiper from "../components/Swiper";
@@ -52,7 +52,7 @@ export default function SwipeTest() {
     return (
         <div>
             <Wrapper>
-                <ProfileNav transparent />
+                <SwipeNav transparent />
                 <main className="profile-page">
                     <section className="relative block" style={{ height: "1000px" }}>
                         <div className="absolute top-0 w-full h-full bg-center bg-cover" style={{ backgroundImage: "url('music_notes.gif')" }}>

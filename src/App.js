@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import SwipeTest from "./pages/SwipeTest";
 import Edit from "./pages/Edit";
+import Matches from "./pages/Matches"
 // import Swiper from "./components/Swiper";
 import Layout from "./components/Layout";
 // import API from "./utils/API";
@@ -33,6 +34,7 @@ function App() {
           <Route path="/test" component={Layout} />
           <Route path="/swipetest" component={SwipeTest} />
           <Route path="/edit" component={Edit} />
+          <Route path="/matches" component={Matches} />
           {/*</Route>*/}
         </Switch>
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
-import Logout from '../Logout'
+import Logout from '../Logout';
+import MatchesButton from '../MatchesButton';
 import { Link } from 'react-router-dom';
 
 export default function ProfileNav(props) {
@@ -47,7 +48,8 @@ export default function ProfileNav(props) {
 
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">
-               <Logout/>
+                <MatchesButton />
+                <Logout />
               </li>
             </ul>
           </div>

@@ -11,14 +11,11 @@ const API = {
   getMatches: () => axios.get(`${URL}/api/swipe/matches`, { withCredentials: true }),
   postUndo: () => { },
   saveSettings: () => { },
-  updateBio: (bio) => {
-    return axios.put(`${URL}/api/user/bio`, bio, { withCredentials: true });
-  },
   uploadImage: info => {
     return axios.post(`${URL}/api/image/upload`, info, { withCredentials: true });
   },
   singleImage: id => {
-    return axios.get(`${URL}/api/image/${id}`, { withCredentials: true })
+    return axios.get(`${URL}/api/image/${id}`, { withCredentials: true });
   },
   sendMessage: () => { },
   receiveMessage: id => axios.get(`${URL}/api/message/receiver/${id}`, { withCredentials: true }),

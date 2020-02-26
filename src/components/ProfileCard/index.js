@@ -6,10 +6,20 @@ import "./style.css";
 
 export default function ProfileCard({ detail, img }) {
   const [messages, setMessages] = useState([]);
+  const [matches, setMatches] = useState([]);
+  const [showEdit, setShowEdit] = useState(false);
+
+  const [bio, setBio] = useState(detail.bio);
 
   useEffect(() => {
     API.receiveMessage(detail.id).then(res => {
       setMessages(res.data);
+    });
+  }, [detail.id]);
+
+  useEffect(() => {
+    API.receiveMatches(detail.id).then(res => {
+      setMatches(res.data);
     });
   }, [detail.id]);
 
@@ -53,6 +63,39 @@ export default function ProfileCard({ detail, img }) {
     });
   }, [image]);
 
+  const toggle = () => {
+    setShowEdit(!showEdit);
+  };
+
+  const handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+
+    // Updating the input's state
+    setBio(value);
+  };
+
+  const editSaveButtons = () => {
+    if (!showEdit) {
+      return (
+        <button onClick={() => toggle()}>
+          <span className="font-normal text-red-700">Edit</span>
+        </button>
+      );
+    } else {
+      return (
+        <button
+          onClick={() => {
+            toggle();
+            API.updateBio({ bio: bio }).then(console.log);
+          }}
+        >
+          <span className="font-normal text-green-700">Save</span>
+        </button>
+      );
+    }
+  };
+
   return (
     <>
       <section className="relative py-16 bg-black" style={{ backgroundImage: "url('music_notes.gif')" }}>
@@ -95,7 +138,7 @@ export default function ProfileCard({ detail, img }) {
                 <div className="w-full lg:w-4/12 px-4 lg:order-1">
                   <div className="flex justify-center py-4 lg:pt-4 pt-8">
                     <div className="mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">22</span>
+                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">{matches.length}</span>
                       <span className="text-sm text-gray-500">Matches</span>
                     </div>
                     <div className="mr-4 p-3 text-center">
@@ -129,12 +172,18 @@ export default function ProfileCard({ detail, img }) {
               <div className="mt-10 py-10 border-t border-gray-800 text-center">
                 <div className="flex flex-wrap justify-center">
                   <div className="w-full lg:w-9/12 px-4">
-                    <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                      {detail.bio}
-                    </p>
-                    <Link to="/edit">
-                      <span className="font-normal text-red-700">Edit</span>
-                    </Link>
+                    {!showEdit ? (
+                      <p className="mb-4 text-lg leading-relaxed text-gray-800">{bio}</p>
+                    ) : (
+                      <textarea
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        name="catchPhrase"
+                        cols="10"
+                        value={bio}
+                        onChange={handleInputChange}
+                      ></textarea>
+                    )}
+                    {editSaveButtons()}
                   </div>
                 </div>
               </div>

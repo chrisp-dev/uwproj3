@@ -15,8 +15,6 @@ import Layout from "./components/Layout";
 // import API from "./utils/API";
 
 function App() {
-  
-
   return (
     <Router>
       <div>
@@ -24,8 +22,6 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
-          {/* <Route exact path="/logout" component={API.logout} /> 
-          <Route path="/app">*/}
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/swipe" component={Layout} />

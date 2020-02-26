@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Image from "./Image";
 import API from "../../../utils/API";
-<<<<<<< HEAD
 import config from "../../../utils/Constants";
-=======
 import Wrapper from "../../Wrapper";
 import Chat from "../../Chat";
->>>>>>> development
 
 export default function MessageRow(props) {
   const [userId, setUserId] = useState("");
@@ -44,16 +41,12 @@ export default function MessageRow(props) {
 
   return (
     <Wrapper>
-
       <div className="row flex h-12 bg-gray-400" onClick={handleClick}>
         <Image image={props.image} name="nate" matchDate="Yesterday 4:44pm" />
         {/* TODO: SOME MESSAGE PREVIEW HERE */}
         <p>{props.preview}</p>
       </div>
-      <main>
-        {showCat ?
-          <Chat /> : null}
-      </main>
+      <main>{showCat ? <Chat /> : null}</main>
     </Wrapper>
   );
 }

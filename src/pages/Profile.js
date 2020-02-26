@@ -12,7 +12,8 @@ export default function Profile() {
 
   const [detail, setDetail] = useState({
     zipcode: "",
-    lastName: ""
+    lastName: "",
+    instrument: ""
   });
 
   const [img, setImg] = useState("");
@@ -21,7 +22,9 @@ export default function Profile() {
     API.loggedinuser()
       .then(res => {
         setUser(res.data);
-        API.getUser(res.data.id).then(detail => setDetail(detail.data));
+        API.getUser(res.data.id).then(detail => {
+          setDetail(detail.data);
+        });
       })
       .catch(err => console.log(err));
   }, []);

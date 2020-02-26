@@ -6,6 +6,10 @@ import "./style.css";
 
 export default function ProfileCard({ detail, img }) {
   const [messages, setMessages] = useState([]);
+  const [showEdit, setShowEdit] = useState(false);
+
+  const [bio, setBio] = useState(detail.bio);
+
 
   useEffect(() => {
     API.receiveMessage(detail.id).then(res => {
@@ -23,7 +27,7 @@ export default function ProfileCard({ detail, img }) {
 
     var fileUpload = document.getElementById("file-upload");
 
-    fileUpload.addEventListener("change", function(event) {
+    fileUpload.addEventListener("change", function (event) {
       var file = event.target.files[0];
       var formData = new FormData();
 
@@ -38,7 +42,7 @@ export default function ProfileCard({ detail, img }) {
         },
         data: formData
       })
-        .then(function(res) {
+        .then(function (res) {
           //SEND THIS URL TO THE IMAGE MODEL
           API.uploadImage({
             imageUrl: res.data.url
@@ -47,11 +51,39 @@ export default function ProfileCard({ detail, img }) {
           });
           alert("your image has been uploaded!");
         })
-        .catch(function(err) {
+        .catch(function (err) {
           console.error(err);
         });
     });
   }, [image]);
+
+  const toggle = () => {
+    setShowEdit(!showEdit);
+  }
+
+  const handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+
+    // Updating the input's state
+    setBio(value);
+  };
+
+  const editSaveButtons = () => {
+    if (!showEdit) {
+      return (
+        <button onClick={() => toggle()}>
+          <span className="font-normal text-red-700">Edit</span>
+        </button>
+      )
+    } else {
+      return (<button onClick={() => {
+        toggle();
+        API.updateBio({ bio: bio }).then(console.log);
+      }}><span className="font-normal text-green-700">Save</span></button>)
+    }
+  }
+
 
   return (
     <>
@@ -117,25 +149,32 @@ export default function ProfileCard({ detail, img }) {
                 </div>
                 {detail.Roles
                   ? detail.Roles.map((r, i) => {
-                      return (
-                        <div key={i} className="mb-2 text-gray-700">
-                          <i className="fas fa-briefcase mr-2 text-lg text-gray-800"></i>
-                          {r.role} ({r.expertise})
+                    return (
+                      <div key={i} className="mb-2 text-gray-700">
+                        <i className="fas fa-briefcase mr-2 text-lg text-gray-800"></i>
+                        {r.role} ({r.expertise})
                         </div>
-                      );
-                    })
+                    );
+                  })
                   : "Everybody can do something"}
               </div>
               <div className="mt-10 py-10 border-t border-gray-800 text-center">
                 <div className="flex flex-wrap justify-center">
+
                   <div className="w-full lg:w-9/12 px-4">
-                    <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                      {detail.bio}
-                    </p>
-                    <Link to="/edit">
-                      <span className="font-normal text-red-700">Edit</span>
-                    </Link>
+
+                    {!showEdit ?
+                      <p className="mb-4 text-lg leading-relaxed text-gray-800">
+                        {bio}
+                      </p> :
+                      <textarea
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        name="catchPhrase" cols="10" value={bio} onChange={handleInputChange} ></textarea>
+                    }
+                    {editSaveButtons()}
+
                   </div>
+
                 </div>
               </div>
             </div>

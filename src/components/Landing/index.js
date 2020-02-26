@@ -1,4 +1,5 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import Navbar from "../Navbar";
 // import Footer from "../Footer";
@@ -67,7 +68,7 @@ export default function Landing() {
                 <div className="relative flex flex-col min-w-0 break-words bg-gray-400 w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-700">
-                      <i className="fas fa-award"></i>
+                      <FontAwesomeIcon className="text-2xl" icon="address-book"></FontAwesomeIcon>
                     </div>
                     <h6 className="text-xl font-semibold">Find New Members</h6>
                     <p className="mt-2 mb-4 text-gray-800">Discover the next member to join your ensemble</p>
@@ -79,7 +80,7 @@ export default function Landing() {
                 <div className="relative flex flex-col min-w-0 break-words bg-gray-400 w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-700">
-                      <i className="fas fa-retweet"></i>
+                      <FontAwesomeIcon className="text-2xl" icon="coffee" ></FontAwesomeIcon>
                     </div>
                     <h6 className="text-xl font-semibold">Explore Interests</h6>
                     <p className="mt-2 mb-4 text-gray-800">Journey outside of your musical genre</p>
@@ -91,7 +92,7 @@ export default function Landing() {
                 <div className="relative flex flex-col min-w-0 break-words bg-gray-400 w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-700">
-                      <i className="fas fa-fingerprint"></i>
+                      <FontAwesomeIcon className="text-2xl" icon="record-vinyl"></FontAwesomeIcon>
                     </div>
                     <h6 className="text-xl font-semibold">Rock On</h6>
                     <p className="mt-2 mb-4 text-gray-800">Enjoy doing what you love with other people who feel the same way!</p>

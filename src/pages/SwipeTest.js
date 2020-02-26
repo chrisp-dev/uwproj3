@@ -4,6 +4,7 @@ import Wrapper from "../components/Wrapper";
 import OptionSwipe from "../components/OptionSwipe";
 import Swiper from "../components/Swiper";
 import API from "../utils/API";
+import Footer from "../components/Footer";
 // import { config } from '../utils/Constants';
 
 export default function SwipeTest() {
@@ -43,10 +44,10 @@ export default function SwipeTest() {
   }, []);
 
   useEffect(
-    function() {
+    function () {
       if (user && user.id > 0) {
         API.singleImage(user.id)
-          .then(img => {})
+          .then(img => { })
           .catch(err => console.log(err));
       }
     },
@@ -64,6 +65,7 @@ export default function SwipeTest() {
           </section>
         </main>
       </Wrapper>
+      <Footer />
     </div>
   );
 }

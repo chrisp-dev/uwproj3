@@ -28,16 +28,15 @@ export default function LoginForm() {
 
   return (
     <>
-      <main>
+      <main className="h-full">
         <section className="relative w-full h-full">
           <div
-            className="absolute top-0 w-full h-full bg-gray-900"
+            className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
-              backgroundImage: "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')",
-              backgroundSize: "100%",
-              backgroundRepeat: "no-repeat"
-            }}
-          ></div>
+              backgroundImage: "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')"
+            }}>
+            {/* <span id="blackOverlay" className="w-full h-full absolute opacity-75 bg-black"></span> */}
+          </div>
           <div className="container mx-auto px-4 h-full">
             <div className="flex content-center items-center justify-center h-full">
               <div className="w-full lg:w-4/12 px-4">

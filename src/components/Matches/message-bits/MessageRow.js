@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Image from "./Image";
 import API from "../../../utils/API";
+import Wrapper from "../../Wrapper";
+import Chat from "../../Chat";
 
 export default function MessageRow(props) {
   const [userId, setUserId] = useState("");
+  const [showCat, setShowCat] = useState(false);
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
 
@@ -26,7 +29,8 @@ export default function MessageRow(props) {
       console.log(JSON.stringify(props.id));
       setRoom(props.id + userId);
       //TODO: CHANGE HREF LINK ------------------------------------------------------------------
-      window.location.href = `http://localhost:3000/chat/chat?name=${name}&room=${room}`;
+      // window.location.href = `http://localhost:3000/chat/chat?name=${name}&room=${room}`;
+      setShowCat(true);
       // chat room name = userid + props id
       // chat participant name = props.name
     } else {
@@ -36,10 +40,17 @@ export default function MessageRow(props) {
   }
 
   return (
-    <div className="row flex" onClick={handleClick} style={{ backgroundColor: 'white' }}>
-      <Image image={props.image} />
-      {/* TODO: SOME MESSAGE PREVIEW HERE */}
-      <p>{props.preview}</p>
-    </div>
+    <Wrapper>
+
+      <div className="row flex h-12 bg-gray-400" onClick={handleClick}>
+        <Image image={props.image} name="nate" matchDate="Yesterday 4:44pm" />
+        {/* TODO: SOME MESSAGE PREVIEW HERE */}
+        <p>{props.preview}</p>
+      </div>
+      <main>
+        {showCat ?
+          <Chat /> : null}
+      </main>
+    </Wrapper>
   );
 }

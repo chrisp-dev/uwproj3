@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import Logout from '../Logout'
 
 export default function AltNav(props) {
@@ -24,7 +25,7 @@ export default function AltNav(props) {
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}>
-              <i className={(props.transparent ? "text-white" : "text-gray-800") + " fas fa-bars"}></i>
+              <FontAwesomeIcon icon="bars" className={props.transparent ? "text-white" : "text-gray-800"}></FontAwesomeIcon>
             </button>
           </div>
           <div

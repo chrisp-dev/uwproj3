@@ -22,7 +22,8 @@ export default function LoginForm() {
         window.location.href = "/profile";
       })
       .catch(err => {
-        console.log(err);
+        console.log("got an error during login. rerouting to ", "/error/" + err);
+        window.location.href = "/error";
       });
   };
 
@@ -34,7 +35,8 @@ export default function LoginForm() {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage: "url('https://cdn.hipwallpaper.com/i/71/71/XBSFfT.jpg')"
-            }}>
+            }}
+          >
             {/* <span id="blackOverlay" className="w-full h-full absolute opacity-75 bg-black"></span> */}
           </div>
           <div className="container mx-auto px-4 h-full">

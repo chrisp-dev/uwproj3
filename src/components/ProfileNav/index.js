@@ -2,6 +2,7 @@ import React from "react";
 import Logout from '../Logout';
 import MatchesButton from '../MatchesButton';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ProfileNav(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -22,21 +23,14 @@ export default function ProfileNav(props) {
                 (props.transparent ? "text-white" : "text-gray-800") +
                 " text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase"
               }
-              to="/"
-            >
+              to="/">
               Mosh
             </Link>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
-              onClick={() => setNavbarOpen(!navbarOpen)}
-            >
-              <i
-                className={
-                  (props.transparent ? "text-white" : "text-gray-800") +
-                  " fas fa-bars"
-                }
-              ></i>
+              onClick={() => setNavbarOpen(!navbarOpen)}>
+              <FontAwesomeIcon icon="bars" className={props.transparent ? "text-white" : "text-gray-800"}></FontAwesomeIcon>
             </button>
           </div>
           <div

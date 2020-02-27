@@ -1,6 +1,5 @@
 import React from "react";
 import API from "../../utils/API";
-import config from "../../utils/Constants";
 
 export default function Logout(props) {
   function handleClick(event) {
@@ -9,7 +8,7 @@ export default function Logout(props) {
       .then(res => {
         console.log(res.data);
         // redirect here
-        window.location.href = `${config.API_URL}/login`;
+        window.location = `/login`;
       })
       .catch(err => {
         console.log(err);

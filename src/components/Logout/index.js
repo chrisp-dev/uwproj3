@@ -9,7 +9,7 @@ export default function Logout(props) {
       .then(res => {
         console.log(res.data);
         // redirect here
-        window.location.href = `${config.API_URL}/login`;
+        window.location.href = `/login`;
       })
       .catch(err => {
         console.log(err);

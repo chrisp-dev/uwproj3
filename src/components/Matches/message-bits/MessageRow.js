@@ -11,12 +11,11 @@ export default function MessageRow(props) {
   const [room, setRoom] = useState("");
 
   useEffect(
-    function() {
+    function () {
       API.loggedinuser()
         .then(res => {
           setUserId(JSON.stringify(res.data.id));
           setName(JSON.stringify(res.data.firstName));
-          console.log("name:", name);
         })
         .catch(err => {
           console.log(err);

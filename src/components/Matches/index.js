@@ -4,15 +4,7 @@ import MessageBody from "./message-bits/MessageBody";
 import API from "../../utils/API";
 
 export default function Messages(props) {
-  const [matches, setMatches] = useState([
-    { name: "Jay", image: "https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512" },
-    { name: "Jay", image: "https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512" },
-    { name: "Jay", image: "https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512" },
-    { name: "Jay", image: "https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512" },
-    { name: "Jay", image: "https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512" },
-    { name: "Jay", image: "https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512" },
-    { name: "Jay", image: "https://ca.slack-edge.com/TQ1KWR5HU-UQKNHH7QE-5caa6237aac7-512" }
-  ]);
+  const [matches, setMatches] = useState([]);
   const [messages, setMessages] = useState([
     // const [messages, setMessage] = useState([
     {
@@ -23,11 +15,18 @@ export default function Messages(props) {
     }
   ]);
 
-  useEffect(() => {
-    API.getMatches().then(matches => setMatches(matches));
+  useEffect(function () {
+    API.loggedinuser()
+      .then(res => {
+        console.log('logged in');
+      })
+      .catch(err => (window.location = "/"));
   }, []);
   useEffect(() => {
-    API.getMessages().then(messages => setMessages(messages));
+    API.getMatches().then(matches => setMatches(matches.data));
+  }, []);
+  useEffect(() => {
+    API.receiveMessage().then(messages => setMessages(messages.data));
   }, []);
 
   return (

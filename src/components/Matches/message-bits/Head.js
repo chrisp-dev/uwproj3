@@ -5,8 +5,8 @@ import './style.css'
 export default function Head({ matches }) {
     return (
         <div className='row flex horizontal' style={{ backgroundColor: 'white' }}>
-            {/* TODO: make it so that it loads however many matches you have */}
-            {matches ? matches.map(match => <Image key={match.id} image={match.image} />) : null}
+            {/* loads however many matches you have */}
+            {matches ? matches.map(match => <Image key={match.id} image={match.imageUrl} name={match.firstName} />) : null}
         </div>
     )
 }

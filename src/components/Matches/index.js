@@ -33,7 +33,7 @@ export default function Messages(props) {
     <section className="relative h-full w-full py-16">
       <div className="container mx-auto h-full px-4">
         <Head matches={matches} />
-        <MessageBody message={messages[0]} />
+        <MessageBody messages={messages} />
       </div>
     </section>
   );

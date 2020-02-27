@@ -24,10 +24,12 @@ export default function Messages(props) {
   ]);
 
   useEffect(() => {
-    API.getMatches().then(matches => setMatches(matches));
+    API.getMatches().then(matches => {
+      console.log('DURP:',matches)
+      setMatches(matches.data)});
   }, []);
   useEffect(() => {
-    API.getMessages().then(messages => setMessages(messages));
+    API.getMessage().then(messages => setMessages(messages));
   }, []);
 
   return (

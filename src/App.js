@@ -17,23 +17,20 @@ import Layout from "./components/Layout";
 function App() {
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/swipe" component={Layout} />
-          <Route path="/chat/join" component={Join} />
-          <Route path="/chat/chat" component={Chat} />
-          <Route path="/test" component={Layout} />
-          <Route path="/swipetest" component={SwipeTest} />
-          <Route path="/edit" component={Edit} />
-          <Route path="/matches" component={Matches} />
-          {/*</Route>*/}
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/swipe" component={Layout} />
+        <Route path="/chat/join" component={Join} />
+        <Route path="/chat/chat" component={Chat} />
+        <Route path="/test" component={Layout} />
+        <Route path="/swipetest" component={SwipeTest} />
+        <Route path="/edit" component={Edit} />
+        <Route path="/matches" component={Matches} />
+      </Switch>
     </Router>
   );
 }

@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ProfileCard({ user, setBio, detail, img }) {
   const [messages, setMessages] = useState([]);
@@ -93,7 +94,7 @@ export default function ProfileCard({ user, setBio, detail, img }) {
 
   return (
     <>
-      <section className="relative py-16 bg-black" style={{ backgroundImage: "url('music_notes.gif')" }}>
+      <section className="relative h-full bg-center bg-cover" style={{ backgroundImage: "url('music_notes.gif')" }}>
         <div className="container mx-auto px-4">
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
             <div className="px-6">
@@ -108,7 +109,7 @@ export default function ProfileCard({ user, setBio, detail, img }) {
                     />
                   </div>
                 </div>
-                <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
+                <div className="w-full lg:w-1/3 px-4 lg:order-3 lg:text-right lg:self-center">
                   <div className="py-6 px-3 mt-32 sm:mt-0">
                     <Link to="/swipetest">
                       <button
@@ -130,7 +131,7 @@ export default function ProfileCard({ user, setBio, detail, img }) {
                     </div>
                   </div>
                 </div>
-                <div className="w-full lg:w-4/12 px-4 lg:order-1">
+                <div className="w-full lg:w-1/3 px-4 lg:order-1">
                   <div className="flex justify-center py-4 lg:pt-4 pt-8">
                     <div className="mr-4 p-3 text-center">
                       <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">{matches.length}</span>
@@ -157,7 +158,7 @@ export default function ProfileCard({ user, setBio, detail, img }) {
                   ? detail.Roles.map((r, i) => {
                     return (
                       <div key={i} className="mb-2 text-gray-700">
-                        <i className="fas fa-briefcase mr-2 text-lg text-gray-800"></i>
+                        <FontAwesomeIcon icon="briefcase" className="mr-2 text-lg text-gray-800"></FontAwesomeIcon>
                         {r.role} ({r.expertise})
                         </div>
                     );

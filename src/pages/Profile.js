@@ -78,8 +78,8 @@ export default function Profile() {
           </section>
           <ProfileCard user={user} setBio={setDetail} detail={detail} img={img} />
         </main>
+        <Footer />
       </Wrapper>
-      <Footer />
     </>
   );
 }

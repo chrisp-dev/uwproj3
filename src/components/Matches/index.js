@@ -29,14 +29,14 @@ export default function Messages(props) {
       setMatches(matches.data)});
   }, []);
   useEffect(() => {
-    API.getMessage().then(messages => setMessages(messages));
+    API.getMessage().then(messages => setMessages(messages.data));
   }, []);
 
   return (
     <section className="relative h-full w-full py-16">
       <div className="container mx-auto h-full px-4">
         <Head matches={matches} />
-        <MessageBody message={messages[0]} />
+        <MessageBody messages={messages}/>
       </div>
     </section>
   );

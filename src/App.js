@@ -9,9 +9,10 @@ import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import SwipeTest from "./pages/SwipeTest";
 import Edit from "./pages/Edit";
-import Matches from "./pages/Matches"
+import Matches from "./pages/Matches";
 // import Swiper from "./components/Swiper";
 import Layout from "./components/Layout";
+import DisplayError from "./components/DisplayError";
 // import API from "./utils/API";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/swipe" component={Layout} />
+        <Route exact path="/error" render={props => <DisplayError {...props} errorMessage="wrong credintials" />} />
         <Route path="/chat/join" component={Join} />
         <Route path="/chat/chat" component={Chat} />
         <Route path="/test" component={Layout} />

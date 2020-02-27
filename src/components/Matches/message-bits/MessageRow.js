@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "./Image";
 import API from "../../../utils/API";
-import config from "../../../utils/Constants";
 import Wrapper from "../../Wrapper";
 import Chat from "../../Chat";
 
@@ -11,16 +10,20 @@ export default function MessageRow(props) {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
 
-  useEffect(function() {
-    API.loggedinuser()
-      .then(res => {
-        setUserId(JSON.stringify(res.data.id));
-        setName(JSON.stringify(res.data.firstName));
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
+  useEffect(
+    function() {
+      API.loggedinuser()
+        .then(res => {
+          setUserId(JSON.stringify(res.data.id));
+          setName(JSON.stringify(res.data.firstName));
+          console.log("name:", name);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    [name]
+  );
 
   function handleClick(event) {
     event.preventDefault();
@@ -28,6 +31,7 @@ export default function MessageRow(props) {
       console.log(userId);
       console.log(JSON.stringify(props.id));
       setRoom(props.id + userId);
+      console.log("room:", room);
       //TODO: CHANGE HREF LINK ------------------------------------------------------------------
       // window.location.href = `http://localhost:3000/chat/chat?name=${name}&room=${room}`;
       setShowCat(true);

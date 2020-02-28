@@ -26,7 +26,7 @@ export default function Messages(props) {
     API.getMatches().then(matches => setMatches(matches.data));
   }, []);
   useEffect(() => {
-    API.receiveMessage().then(messages => setMessages(messages.data));
+    API.getChatMessages().then(messages => { console.log(messages.data); setMessages(messages.data) });
   }, []);
 
   return (

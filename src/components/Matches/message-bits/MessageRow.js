@@ -4,10 +4,10 @@ import API from "../../../utils/API";
 import Wrapper from "../../Wrapper";
 import Chat from "../../Chat";
 
-export default function MessageRow({image, namee}) {
+export default function MessageRow({ image, name }) {
   const [userId, setUserId] = useState("");
   const [showCat, setShowCat] = useState(false);
-  const [name, setName] = useState("");
+  const [cName, setCName] = useState(name);
   // const [room, setRoom] = useState("");
 
   useEffect(
@@ -15,14 +15,12 @@ export default function MessageRow({image, namee}) {
       API.loggedinuser()
         .then(res => {
           setUserId(JSON.stringify(res.data.id));
-          setName(JSON.stringify(res.data.firstName));
+          setCName(JSON.stringify(res.data.firstName));
         })
         .catch(err => {
           console.log(err);
         });
-    },
-    [name]
-  );
+    }, [name]);
 
   function handleClick(event) {
     event.preventDefault();
@@ -45,11 +43,11 @@ export default function MessageRow({image, namee}) {
   return (
     <Wrapper>
       <div className="row flex h-12 bg-gray-400" onClick={handleClick}>
-        <Image image={image} name={namee} matchDate="Yesterday 4:44pm" />
+        <Image image={image} name={cName} matchDate="Yesterday 4:44pm" />
         {/* TODO: SOME MESSAGE PREVIEW HERE */}
         {/* <p>{props.preview}</p> */}
       </div>
-      <main>{showCat ? <Chat /> : null}</main>
+      <main>{showCat ? <Chat name="room" room="1" /> : null}</main>
     </Wrapper>
   );
 }

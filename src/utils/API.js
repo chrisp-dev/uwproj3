@@ -10,6 +10,7 @@ const API = {
   postNope: user => axios.post(`${URL}/api/swipe/nope/${user.Id}`, {}, { withCredentials: true }),
   getMatches: () => axios.get(`${URL}/api/swipe/matches`, { withCredentials: true }),
   postUndo: () => { },
+  getMatchCount: () => axios.get(`${URL}/api/swipe/matchcount`, { withCredentials: true }),
   saveSettings: () => { },
   uploadImage: info => {
     return axios.post(`${URL}/api/image/upload`, info, { withCredentials: true });

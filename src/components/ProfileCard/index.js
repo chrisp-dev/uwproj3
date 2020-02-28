@@ -17,8 +17,9 @@ export default function ProfileCard({ user, setBio, detail, img }) {
   }, [detail.id]);
 
   useEffect(() => {
-    API.receiveMatches(detail.id).then(res => {
-      setMatches(res.data);
+    API.getMatchCount().then(res => {
+      console.log('matches: ', res.data[0].Count);
+      setMatches(res.data[0].Count);
     });
   }, [detail.id]);
 
@@ -134,7 +135,7 @@ export default function ProfileCard({ user, setBio, detail, img }) {
                 <div className="w-full lg:w-1/3 px-4 lg:order-1">
                   <div className="flex justify-center py-4 lg:pt-4 pt-8">
                     <div className="mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">{matches.length}</span>
+                      <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">{matches}</span>
                       <span className="text-sm text-gray-500">Matches</span>
                     </div>
                     <div className="lg:mr-4 p-3 text-center">

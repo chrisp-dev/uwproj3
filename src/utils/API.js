@@ -28,10 +28,10 @@ const API = {
   chatSubscribe: () => { },
   bulkPost: () => { },
   login: user => {
-    return axios.post(`${URL}/api/auth/login`, user, { withCredentials: true });
+    return axios.post(`${URL}/api/auth/login`, user);
   },
   signup: user => {
-    return axios.post(`${URL}/api/auth/signup`, user, { withCredentials: true });
+    return axios.post(`${URL}/api/auth/signup`, user);
   },
   loggedinuser: () => {
     return axios.get(`${URL}/api/auth/loggedinuser`, { withCredentials: true });

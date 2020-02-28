@@ -21,14 +21,14 @@ const Chat = ({ location }) => {
   const ENDPOINT = config.API_URL;
 
   useEffect(() => {
-    const { name, room } = queryString.parse(window.location.search);
+    const { nameQ, roomQ } = queryString.parse(window.location.search);
 
     socket = io(ENDPOINT);
 
-    setRoom(room);
-    setName(name);
+    setRoom(roomQ);
+    setName(nameQ);
 
-    socket.emit("join", { name, room }, error => {
+    socket.emit("join", { nameQ, roomQ }, error => {
       if (error) {
         alert(error);
       }

@@ -21,7 +21,9 @@ const API = {
     return axios.get(`${URL}/api/image/${id}`, { withCredentials: true });
   },
   sendMessage: () => { },
+  getChatMessages: () => axios.get(`${URL}/api/message/all`, { withCredentials: true }),
   receiveMessage: id => axios.get(`${URL}/api/message/receiver/${id}`, { withCredentials: true }),
+  getMessage: id => axios.get(`${URL}/api/message/receiver/${id}`, { withCredentials: true }),
   receiveMatches: id => axios.get(`${URL}/api/swipe/matches`, { withCredentials: true }),
   chatSubscribe: () => { },
   bulkPost: () => { },

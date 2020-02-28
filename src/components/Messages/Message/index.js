@@ -7,6 +7,7 @@ import ReactEmoji from "react-emoji";
 const Message = ({ message: { text, user }, name }) => {
   let isSentByCurrentUser = false;
 
+  name = name || "ChrisBot";
   const trimmedName = name.trim().toLowerCase();
 
   if (user === trimmedName) {
@@ -21,13 +22,13 @@ const Message = ({ message: { text, user }, name }) => {
       </div>
     </div>
   ) : (
-    <div className="messageContainer justifyStart">
-      <div className="messageBox backgroundLight">
-        <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p>
+      <div className="messageContainer justifyStart">
+        <div className="messageBox backgroundLight">
+          <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p>
+        </div>
+        <p className="sentText pl-10 ">{user}</p>
       </div>
-      <p className="sentText pl-10 ">{user}</p>
-    </div>
-  );
+    );
 };
 
 export default Message;

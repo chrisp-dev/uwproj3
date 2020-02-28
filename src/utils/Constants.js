@@ -4,7 +4,7 @@ const prod = {
 };
 
 const dev = {
-  API_URL: "http://localhost:8080"
+  API_URL: "https://mosh-api.herokuapp.com"
 };
 
 const config = process.env.NODE_ENV === "development" ? dev : prod;
